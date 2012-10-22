@@ -357,7 +357,7 @@ $("#shelve div.book").bind('tap', function(event){
     };
     if ($(this).hasClass('b6')) {
         bookTop = '0';
-        bookHeight = '752px',
+        bookHeight = '752px', 
         bookWidth = '1152px';  
     };
     $(this).css( 'z-index', 1 );
@@ -391,7 +391,7 @@ $("#shelve div.book").bind('tap', function(event){
         };
         $('div.book.open').animate({'top':bookTop,'left':bookLeft, 'height':bookHeight, 'width':bookWidth, 'z-index':'0'});
         $("div.book.open .cover").hide();
-        $('div.book.open').removeClass('open');
+        
         $(this).unbind('tap');
         $(window).unbind('keydown');
     });    
