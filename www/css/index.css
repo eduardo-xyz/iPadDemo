@@ -1,0 +1,290 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    -webkit-user-select: text;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+}
+
+body {
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+#popupPanel-popup {
+    right: 0 !important;
+    left: auto !important;
+}
+#popupPanel {
+    width: 200px;
+    border: 1px solid #000;
+    border-right: none;
+    background: rgba(0,0,0,.5);
+    margin: -1px 0;
+}
+#popupPanel .ui-btn {
+    margin: 2em 15px;
+}
+
+#tapDemo{
+    width: 100%;
+    height: 100px;
+    background-color: blue;
+}
+#tapDemo.tap{
+    background-color: red;   
+}
+
+#tapHoldDemo{
+    width: 100%;
+    height: 100px;
+    background-color: pink;
+}
+
+#tapHoldDemo.tap{
+    background-color: brown;
+}
+
+#swipeDemo{
+    height: 200px;
+    width: 100%;
+    border: solid 2px black;
+}
+#swipeDemo div{
+    height: 50%;
+    width: 100%;
+    background-color: green;
+    position: relative;
+}
+#swipeDemo div.swipe{
+    top: 50%;
+}
+
+#swipeHDemo{
+    height: 200px;
+    width: 100%;
+    border: solid 2px black;
+}
+#swipeHDemo div{
+    height: 100%;
+    width: 50%;
+    background-color: black;
+    position: relative;
+}
+
+#movility .column{  
+    width:49%;  
+    margin-right:.5%;  
+    min-height:300px;  
+    background:#fff;  
+    float:left;  
+}  
+#movility .column .dragbox{  
+    margin:5px 2px  20px;  
+    background:#fff;  
+    position:relative;  
+    border:1px solid #ddd;  
+    -moz-border-radius:5px;  
+    -webkit-border-radius:5px;  
+}  
+#movility .column .dragbox h2{  
+    margin:0;  
+    font-size:12px;  
+    padding:5px;  
+    background:#f0f0f0;  
+    color:#000;  
+    border-bottom:1px solid #eee;  
+    font-family:Verdana;  
+    cursor:move;  
+}  
+#movility .dragbox-content{  
+    background:#fff;  
+    min-height:100px; margin:5px;  
+    font-family:'Lucida Grande', Verdana; font-size:0.8em; line-height:1.5em;  
+}  
+#movility .column  .placeholder{  
+    background: #f0f0f0;  
+    border:1px dashed #ddd;  
+}  
+#movility .dragbox h2.collapse{  
+    background:#f0f0f0 url('collapse.png') no-repeat top rightright;  
+}  
+#movility .dragbox h2 .configure{  
+    font-size:11px; font-weight:normal;  
+    margin-right:30px; float:rightright;  
+}
+
+#book div.ui-content{
+    height: 800px;
+}
+#shelve{
+    width: 852px;
+    height: 300px;
+    margin-top: 50px;
+}
+#shelve div.shelveRow{
+    width: 100%;
+    height: 50%;
+    background: url("../img/wall-bookshelf.png") no-repeat scroll 0 400% transparent;
+}
+#shelve div.book{
+    position: relative;
+    border: solid;
+    background-size: 100% 100% !important;
+    background-position: 0 !important;
+}
+#shelve div.book.b1{
+    width: 93px;
+    height: 115px;
+    background: url("../img/book1.jpeg") no-repeat scroll 0 400% transparent;
+    left: 100px;
+}
+#shelve div.book.b6{
+    background: url("../img/book6.jpeg") no-repeat scroll 0 400% transparent;
+    height: 125px;
+    left: 250px;
+    top: -10px;
+    width: 105px;
+}
+div.book.b1{
+    width:800px;
+    height:500px;
+}
+
+div.book.b1 .turn-page{
+    background-color:white;
+}
+
+div.book.b1 .cover{
+    background:#333;
+    display: none;
+}
+
+div.book.b1 .cover h1{
+    color:white;
+    text-align:center;
+    font-size:50px;
+    line-height:500px;
+    margin:0px;
+}
+
+div.book.b1 .loader{
+    background-image:url(loader.gif);
+    width:24px;
+    height:24px;
+    display:block;
+    position:absolute;
+    top:238px;
+    left:188px;
+}
+
+div.book.b1 .data{
+    text-align:center;
+    font-size:40px;
+    color:#999;
+    line-height:500px;
+}
+
