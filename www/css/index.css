@@ -253,16 +253,13 @@ div.book.b1{
     width:800px;
     height:500px;
 }
-
 div.book.b1 .turn-page{
     background-color:white;
 }
-
 div.book.b1 .cover{
     background:#333;
     display: none;
 }
-
 div.book.b1 .cover h1{
     color:white;
     text-align:center;
@@ -270,7 +267,6 @@ div.book.b1 .cover h1{
     line-height:500px;
     margin:0px;
 }
-
 div.book.b1 .loader{
     background-image:url(loader.gif);
     width:24px;
@@ -280,7 +276,6 @@ div.book.b1 .loader{
     top:238px;
     left:188px;
 }
-
 div.book.b1 .data{
     text-align:center;
     font-size:40px;
@@ -288,3 +283,9 @@ div.book.b1 .data{
     line-height:500px;
 }
 
+div.book.b6{
+    
+}
+div.book.b6 div{
+    /*display: none;*/
+}

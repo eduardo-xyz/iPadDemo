@@ -357,11 +357,24 @@ $("#shelve div.book").bind('tap', function(event){
     };
     if ($(this).hasClass('b6')) {
         bookTop = '0';
-        bookHeight = '752px', 
-        bookWidth = '1152px';  
+        bookHeight = '400px', 
+        bookWidth = '600px';  
     };
     $(this).css( 'z-index', 1 );
-    $(this).animate({'z-index':'1', 'top':bookTop,'left':'0', 'height':bookHeight, 'width':bookWidth});
+    $(this).animate({'z-index':'1', 'top':bookTop,'left':'0', 'height':bookHeight, 'width':bookWidth}, function(){
+        // b6
+        // $('div.book.b6 div').show();
+        // $('div.book.b6').turn({
+        //     width: 600,
+        //     height: 400,
+        //     autoCenter: true
+        // });
+        window.location = "book2.html";
+        // $.mobile.changePage('book2.html');
+        // $.mobile.changePage('http://www.turnjs.com/');
+        // $.mobile.loadPage('book2.html');
+        // $.mobile.changePage('#bookDemo2');
+    });
     event.stopPropagation();
     $(this).addClass('open');
     $("div.book.open .cover").show();
@@ -397,62 +410,4 @@ $("#shelve div.book").bind('tap', function(event){
     });    
 });
 
-// b1
 
-// Sample using dynamic pages with turn.js
-
-var numberOfPages = 1000;
-
-
-// Adds the pages that the book will need
-function addPage(page, book) {
-    // First check if the page is already in the book
-    if (!book.turn('hasPage', page)) {
-        // Create an element for this page
-        var element = $('<div />', {'class': 'page '+((page%2==0) ? 'odd' : 'even'), 'id': 'page-'+page}).html('<i class="loader"></i>');
-        // If not then add the page
-        book.turn('addPage', element, page);
-        // Let's assum that the data is comming from the server and the request takes 1s.
-        setTimeout(function(){
-            element.html('<div class="data">Data for page '+page+'</div>');
-        }, 1000);
-    }
-}
-
-$(document).bind('pageinit', function() {
-    $('#book').bind('pageinit', function() {
-        $('div.book.b1').turn({acceleration: true,
-        pages: numberOfPages,
-        elevation: 50,
-        gradients: !$.isTouch,
-        when: {
-            turning: function(e, page, view) {
-
-                // Gets the range of pages that the book needs right now
-                var range = $(this).turn('range', page);
-
-                // Check if each page is within the book
-                for (page = range[0]; page<=range[1]; page++)
-                addPage(page, $(this));
-
-            },
-
-            turned: function(e, page) {
-                // $('#page-number').val(page);
-            }
-        }
-        });
-
-        // $('#number-pages').html(numberOfPages);
-
-        // $('#page-number').keydown(function(e){
-        //     if (e.keyCode==13)
-        //     $('div.book.b1').turn('page', $('#page-number').val());
-        // });
-    });
-
-    // b6
-
-
-
-});
