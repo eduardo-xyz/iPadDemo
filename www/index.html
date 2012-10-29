@@ -21,8 +21,12 @@ under the License.
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="format-detection" content="telephone=no" />
-  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <meta id="viewport" name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=10, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
   <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <link class="include" rel="stylesheet" type="text/css" href="css/jquery.jqplot.min.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="css/examples.min.css" />
+  <link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shCoreDefault.min.css" />
+  <link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shThemejqPlot.min.css" /> -->
 
   <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
   <script src="js/jquery-1.8.2.min.js"></script>
@@ -40,6 +44,15 @@ under the License.
   <script src="js/jquery.ui.map.services.min.js"></script>
   <script src="js/jquery.ui.map.extensions.js"></script>
   <script src="js/turn.min.js"></script>
+  <script class="include" type="text/javascript" src="js/jquery.jqplot.min.js"></script>
+  <script type="text/javascript" src="js/jqplot.barRenderer.min.js"></script>
+  <script type="text/javascript" src="js/jqplot.pieRenderer.min.js"></script>
+  <script type="text/javascript" src="js/jqplot.categoryAxisRenderer.min.js"></script>
+  <script type="text/javascript" src="js/jqplot.pointLabels.min.js"></script>
+  <script type="text/javascript" src="js/jqplot.highlighter.min.js"></script>
+  <script type="text/javascript" src="js/jqplot.cursor.min.js"></script>
+  <script type="text/javascript" src="js/iphone-unlock.js"></script>
+  <script type="text/javascript" src="js/ui.slider.js"></script>
   <title>iPad Demo</title>
 </head>
 <body>
@@ -748,7 +761,69 @@ under the License.
     <h1>Gráficas</h1>
   </div><!-- /header -->
   <div data-role="content">   
-    ...
+    <div class="ui-grid-a">
+      <div class="ui-block-a">
+        <a href="#chart1" data-role="button" data-theme="c">Barras</a>
+        <div class="chartPic">
+          <img src="img/charts/bars.png"/>
+        </div>
+      </div>
+      <div class="ui-block-b">
+        <a href="#chart2" data-role="button" data-theme="c">Pie</a>
+        <div class="chartPic">
+          <img src="img/charts/pie.png"/>
+        </div>
+      </div>
+      <div class="ui-block-a">
+        <a href="#chart3" data-role="button" data-theme="c">Area</a>
+        <div class="chartPic">
+          <img src="img/charts/area.png"/>
+        </div>
+      </div>
+      <div class="ui-block-b">
+        <a href="#chart4" data-role="button" data-theme="c">Plots</a>
+        <div class="chartPic">
+          <img src="img/charts/plots.png"/>
+        </div>
+      </div>     
+    </div>
+  </div><!-- /content -->
+</div><!-- /page -->
+<div data-role="page" id="chart1">
+  <div data-role="header">
+    <a href="#charts" data-icon="arrow-l">Gráficas</a>
+    <h1>Gráfico de barras</h1>
+  </div><!-- /header -->
+  <div data-role="content">   
+    <div><span>Seleccionó: </span><span id="barChartInfo">Nada aun</span></div>
+    <div id="barChart" style="margin-top:20px; margin-left:20px; width:600px; height:600px;"></div>
+  </div><!-- /content -->
+</div><!-- /page -->
+<div data-role="page" id="chart2">
+  <div data-role="header">
+    <a href="#charts" data-icon="arrow-l">Gráficas</a>
+    <h1>Gráfico de tipo pastel</h1>
+  </div><!-- /header -->
+  <div data-role="content">   
+    <div id="pieChart1" style="height:300px; width:500px;"></div>
+  </div><!-- /content -->
+</div><!-- /page -->
+<div data-role="page" id="chart3">
+  <div data-role="header">
+    <a href="#charts" data-icon="arrow-l">Gráficas</a>
+    <h1>Gráfico de areas</h1>
+  </div><!-- /header -->
+  <div data-role="content">   
+    <div id="areaChart2" style="width:600px;height:260px;"></div>
+  </div><!-- /content -->
+</div><!-- /page -->
+<div data-role="page" id="chart4">
+  <div data-role="header">
+    <a href="#charts" data-icon="arrow-l">Gráficas</a>
+    <h1>Gráfico complejo</h1>
+  </div><!-- /header -->
+  <div data-role="content">   
+    <div id="plotChart1" style="width:700px; height:300px"></div>
   </div><!-- /content -->
 </div><!-- /page -->
 
@@ -761,19 +836,10 @@ under the License.
     <div id="shelve">
       <div class="shelveRow">
         <div class="book b6">
-          <div class="hard"> Turn.js </div> 
-          <div class="hard"></div>
-          <div> Page 1 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div class="hard"></div>
-          <div class="hard"></div>
         </div>
       </div>
       <div class="shelveRow">
         <div class="book b1">
-          <div class="cover"><h1>BRL Demo libro #1</h1></div>
         </div>
       </div>
     </div>
@@ -783,9 +849,144 @@ under the License.
   </div><!-- /footer -->
 </div><!-- /page -->
 
+<div data-role="page" id="zoom">
+  <div data-role="header">
+    <a href="#home" data-icon="arrow-l">Menú</a>
+    <h1>Demostración de zoom</h1>
+  </div><!-- /header -->
+  <div data-role="content">   
+    <div class="ui-grid-a">
+      <div class="ui-block-a">
+        <p class="z1">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lectus magna, mollis et euismod ut, tincidunt et nisl. Praesent facilisis mollis justo, non euismod quam vehicula eu. Cras pellentesque bibendum luctus. In mattis, metus id elementum congue, dui ligula ornare mauris, sed viverra velit ipsum nec justo. Vestibulum ornare congue nisl, ac bibendum augue volutpat eu. Donec at quam gravida erat pellentesque interdum scelerisque sed urna. Maecenas sollicitudin vestibulum mi, eget hendrerit ipsum placerat non.
+        </p>
+      </div>
+      <div class="ui-block-b">
+        <p class="z2">
+          Etiam ultrices odio sagittis erat aliquam tempor. Duis blandit aliquam nibh ac rhoncus. Etiam leo orci, sagittis eu luctus ac, malesuada adipiscing turpis. Donec interdum tincidunt tincidunt. In luctus gravida vestibulum. Phasellus a tellus est. Ut congue lobortis porta.
+        </p>
+        <img src="img/BRL.png"/>
+      </div>
+      <div class="ui-block-a">
+        <p class="z3">
+          Sed vitae neque sit amet metus porta venenatis quis ut mi. Suspendisse sit amet facilisis nibh. Maecenas ullamcorper hendrerit sem nec bibendum. Nulla adipiscing massa rhoncus mauris facilisis ullamcorper vestibulum nisl congue. In semper, neque a condimentum porttitor, libero elit fermentum dolor, et cursus leo leo vitae erat. Vestibulum venenatis rhoncus enim. Mauris quis lorem ipsum, lobortis sollicitudin sapien. In at massa metus. Nam libero turpis, venenatis non euismod at, tempus vitae urna. Proin iaculis enim libero, at egestas sapien. In et gravida mi. Nam quis nisl in mi auctor ultrices nec sed sapien. Morbi scelerisque nibh vel sem lacinia egestas. Quisque vulputate augue a neque consequat porta.
+        </p>
+      </div>
+      <div class="ui-block-b">
+        <p class="z4">
+          Etiam sed erat diam, vitae sodales tellus. Curabitur tempus nibh vitae eros semper lacinia. Curabitur nibh ligula, aliquam vitae ultricies ac, sollicitudin quis lectus. Aenean ut fermentum arcu. Donec vel massa dui, a pulvinar magna. Ut sed leo sit amet nulla rutrum laoreet vel id felis. Aliquam erat volutpat. Suspendisse vitae commodo tellus. Sed ac odio orci, eu tempor sem. Nam convallis laoreet vestibulum. Morbi dignissim, turpis id vehicula gravida, nibh arcu interdum augue, ac varius neque orci eu lectus. Integer consectetur tempus imperdiet.
+        </p>
+        <img class="small" src="img/BRL2.png"/>
+        <img class="small" src="img/BRL2.png"/>
+        <img class="small" src="img/BRL2.png"/>
+        <img class="small" src="img/BRL2.png"/>
+        <img class="small" src="img/BRL2.png"/>
+        <img class="small" src="img/BRL2.png"/>
+        <img class="small" src="img/BRL2.png"/>
+        <img class="small" src="img/BRL2.png"/>
+        <img class="small" src="img/BRL2.png"/>
+        <img class="small" src="img/BRL2.png"/>
+        <img class="small" src="img/BRL2.png"/>
+        <img class="small" src="img/BRL2.png"/>
+      </div>
+      <div class="ui-block-a">
+        <p class="z5">
+          Maecenas nunc felis, cursus quis pharetra ac, ullamcorper pellentesque nulla. Vestibulum eu faucibus lectus. Nunc nec risus ut tellus tincidunt placerat in quis justo. Suspendisse cursus massa sit amet augue fermentum sed laoreet purus commodo. Curabitur feugiat lectus nec erat tempor vel euismod sapien volutpat. Nam posuere sem quis enim feugiat non commodo metus pulvinar. Suspendisse euismod vulputate justo, auctor mollis nibh auctor in. Sed eleifend feugiat ultricies. Suspendisse justo quam, semper nec accumsan in, bibendum vehicula justo. Mauris pretium mollis fringilla. In vehicula elit et sem tristique pellentesque. Nullam sem diam, commodo sit amet ultricies at, cursus eu ipsum.
+        </p>
+      </div>
+      <div class="ui-block-b">
+        <p class="z6">
+          Quisque dapibus, turpis vel ultricies tincidunt, massa augue commodo urna, a vulputate sapien velit quis orci. Nulla tempor, quam ut convallis porttitor, arcu dui ultrices ante, sit amet ornare justo mauris eget est. Ut tellus elit, rhoncus eu euismod eget, commodo ac enim. Fusce sodales fringilla mollis. Morbi sollicitudin rutrum faucibus. Nam ut ultricies nisl. Vestibulum felis dui, consequat et tincidunt in, consequat nec justo. Duis adipiscing consectetur suscipit. Suspendisse erat diam, vehicula eu convallis vel, lacinia ut erat. Vivamus dapibus arcu non dolor elementum accumsan. Nullam et adipiscing massa. Curabitur tempus dapibus nulla, nec viverra ipsum lobortis nec. Etiam iaculis ornare orci, non dignissim quam imperdiet at. Nam quis lorem purus. Nam molestie libero metus.
+        </p>
+      </div> 
+    </div>
+  </div><!-- /content -->
+  <div data-role="footer"> 
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#zoom">1</a></li>
+        <li><a href="#zoom2">2</a></li>
+      </ul>
+    </div><!-- /navbar -->
+  </div><!-- /footer -->
+</div><!-- /page -->
+<div data-role="page" id="zoom2">
+  <div data-role="header">
+    <a href="#home" data-icon="arrow-l">Menú</a>
+    <h1>Base de datos</h1>
+  </div><!-- /header -->
+  <div data-role="content">   
+    <img src="img/big_big_buck_bunny.jpeg">
+  </div><!-- /content -->
+  <div data-role="footer"> 
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#zoom">1</a></li>
+        <li><a href="#zoom2">2</a></li>
+      </ul>
+    </div><!-- /navbar -->
+  </div><!-- /footer -->
+</div><!-- /page -->
 
-
-
+<div data-role="page" id="security">
+  <div data-role="header">
+    <a href="#home" data-icon="arrow-l">Menú</a>
+    <h1>Algoritmos de seguridad</h1>
+  </div><!-- /header -->
+  <div data-role="content">   
+    <h2>Algoritmo actual.</h2>
+    <p>Un posible ejemplo del algoritmo de seguridad consiste en el día del mes (en dos dígitos) más la hora del día (en dos dígitos). Transformados de números a letras.</p>
+    <p>A este algoritmo se le puede agregar algún otro tipo de complejidad o parámetros para su generación. Como un valor de usuario, módulo, pantalla, pin, etc.</p>
+    <ul>
+      <li>
+        0 = A.
+      </li>
+      <li>
+        1 = B.
+      </li>
+      <li>
+        2 = C.
+      </li>
+      <li>
+        3 = D.
+      </li>
+      <li>
+        4 = E.
+      </li>
+      <li>
+        5 = F.
+      </li>
+      <li>
+        6 = G.
+      </li>
+      <li>
+        7 = H.
+      </li>
+      <li>
+        8 = I.
+      </li>
+      <li>
+        9 = J.
+      </li>
+    </ul>
+    <h2>Resultado del algoritmo.</h2>
+    <p>El día del mes es <span id="day">day</span> y la hora actual es <span id="hour">hour</span>.</p>
+    <p>La contraseña es : <span id="passwordRevealed">password</span></p>
+    <h2>Sistema de seguridad.</h2>
+    <div data-role="fieldcontain">
+      <label for="key">Ingrese la ocntraseña:</label>
+      <input type="password" name="key" id="key" value=""  />
+    </div>
+    <a id="enter" data-role="button" data-icon="check" data-iconpos="top" data-theme="a">Ingresar</a>
+    <span id="result">...</span>
+    <!-- <div id="unlock-bottom">
+      <div id="slide-to-unlock"></div>
+      <div id="unlock-slider-wrapper">
+        <div id="unlock-slider"><div id="unlock-handle"></div></div>
+      </div>
+    </div> -->
+  </div><!-- /content -->
+</div><!-- /page -->
 
 <div data-role="page" id="dataBase">
   <div data-role="header">

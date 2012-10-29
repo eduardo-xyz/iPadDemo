@@ -1,27 +1,30 @@
-#book2{
-    width:400px;
-    height:300px;
-    border: solid;
+body{
+    overflow:hidden;
 }
 
-#book2 .page{
+#flipbook{
+    width:400px;
+    height:300px;
+}
+
+/*#flipbook .page{
     width:400px;
     height:300px;
     background-color:white;
     line-height:300px;
     font-size:20px;
     text-align:center;
-}
+}*/
 
-#book2 .page-wrapper{
+/*#flipbook .page-wrapper{
     -webkit-perspective:2000px;
     -moz-perspective:2000px;
     -ms-perspective:2000px;
     -o-perspective:2000px;
     perspective:2000px;
-}
+}*/
 
-#book2 .hard{
+/*#flipbook .hard{
     background:#ccc !important;
     color:#333;
     -webkit-box-shadow:inset 0 0 5px #666;
@@ -30,9 +33,9 @@
     -ms-box-shadow:inset 0 0 5px #666;
     box-shadow:inset 0 0 5px #666;
     font-weight:bold;
-}
+}*/
 
-#book2 .odd{
+/*#flipbook .odd{
     background:-webkit-gradient(linear, right top, left top, color-stop(0.95, #FFF), color-stop(1, #DADADA));
     background-image:-webkit-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
     background-image:-moz-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
@@ -47,7 +50,7 @@
     
 }
 
-#book2 .even{
+#flipbook .even{
     background:-webkit-gradient(linear, left top, right top, color-stop(0.95, #fff), color-stop(1, #dadada));
     background-image:-webkit-linear-gradient(left, #fff 95%, #dadada 100%);
     background-image:-moz-linear-gradient(left, #fff 95%, #dadada 100%);
@@ -59,4 +62,34 @@
     -o-box-shadow:inset 0 0 5px #666;
     -ms-box-shadow:inset 0 0 5px #666;
     box-shadow:inset 0 0 5px #666;
-}​
+}​*/
+
+/*Book 2 content*/
+#cover1 img.logo{
+    height: 75px;
+    width: 75px;
+}
+#cover1 div.logo{
+    float: left;
+    cursor: pointer;    
+}
+#cover1 h1{
+    margin-bottom: -8px;
+    margin-top: 11px;
+}
+#cover1 span{
+    margin-left: 2px;
+}
+#cover1 #slogan{
+    float: right;
+}
+#cover1 #slogan p{
+    margin-bottom: 0;
+    margin-top: 41px;
+    vertical-align: bottom;
+    margin-right: 5px;
+    color: #635C55;
+    font-family: 'Open Sans';
+    font-size: 30px;
+    letter-spacing: -1px;
+}

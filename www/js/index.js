@@ -16,6 +16,26 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var zoomablePagesIDs = ["zoom", "zoom2"];
+var zoomablePageMeta =  "initial-scale=1, maximum-scale=10.0, minimum-scale=1.0,  user-scalable=1"; 
+var fixedPageMeta =     "initial-scale=1, maximum-scale=1.0, maximum-scale=1.0,  user-scalable=no";
+
+$('[data-role=page]').live('pagebeforeshow', function() {
+    var curPageID = $(this).attr('id');
+    var curMeta = $('#viewportMeta').attr("content");
+    if ( $.inArray(curPageID, zoomablePagesIDs) != -1 ) {
+        $('#viewport').attr("content", zoomablePageMeta);
+        $(this).page().trigger('create');
+    } else if ( ($.inArray(curPageID, zoomablePagesIDs) == -1) && (curMeta != fixedPageMeta) ) {
+        $('#viewport').attr("content", fixedPageMeta);
+        $(this).page().trigger('create');
+    }
+});
+
+$(window).resize(function() { 
+    $(".ui-header").width($(window).width());
+});
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -52,80 +72,79 @@ var app = {
 
 (function() {
 // initializes touch and scroll events
-        var supportTouch = $.support.touch,
-                scrollEvent = "touchmove scroll",
-                touchStartEvent = supportTouch ? "touchstart" : "mousedown",
-                touchStopEvent = supportTouch ? "touchend" : "mouseup",
-                touchMoveEvent = supportTouch ? "touchmove" : "mousemove";
+    var supportTouch = $.support.touch,
+            scrollEvent = "touchmove scroll",
+            touchStartEvent = supportTouch ? "touchstart" : "mousedown",
+            touchStopEvent = supportTouch ? "touchend" : "mouseup",
+            touchMoveEvent = supportTouch ? "touchmove" : "mousemove";
 
- // handles swipeup and swipedown
-        $.event.special.swipeupdown = {
-            setup: function() {
-                var thisObject = this;
-                var $this = $(thisObject);
+// handles swipeup and swipedown
+    $.event.special.swipeupdown = {
+        setup: function() {
+            var thisObject = this;
+            var $this = $(thisObject);
 
-                $this.bind(touchStartEvent, function(event) {
-                    var data = event.originalEvent.touches ?
-                            event.originalEvent.touches[ 0 ] :
-                            event,
-                            start = {
-                                time: (new Date).getTime(),
-                                coords: [ data.pageX, data.pageY ],
-                                origin: $(event.target)
-                            },
-                            stop;
-
-                    function moveHandler(event) {
-                        if (!start) {
-                            return;
-                        }
-
-                        var data = event.originalEvent.touches ?
-                                event.originalEvent.touches[ 0 ] :
-                                event;
-                        stop = {
+            $this.bind(touchStartEvent, function(event) {
+                var data = event.originalEvent.touches ?
+                        event.originalEvent.touches[ 0 ] :
+                        event,
+                        start = {
                             time: (new Date).getTime(),
-                            coords: [ data.pageX, data.pageY ]
-                        };
+                            coords: [ data.pageX, data.pageY ],
+                            origin: $(event.target)
+                        },
+                        stop;
 
-                        // prevent scrolling
-                        if (Math.abs(start.coords[1] - stop.coords[1]) > 10) {
-                            event.preventDefault();
-                        }
+                function moveHandler(event) {
+                    if (!start) {
+                        return;
                     }
 
-                    $this
-                            .bind(touchMoveEvent, moveHandler)
-                            .one(touchStopEvent, function(event) {
-                        $this.unbind(touchMoveEvent, moveHandler);
-                        if (start && stop) {
-                            if (stop.time - start.time < 1000 &&
-                                    Math.abs(start.coords[1] - stop.coords[1]) > 30 &&
-                                    Math.abs(start.coords[0] - stop.coords[0]) < 75) {
-                                start.origin
-                                        .trigger("swipeupdown")
-                                        .trigger(start.coords[1] > stop.coords[1] ? "swipeup" : "swipedown");
-                            }
+                    var data = event.originalEvent.touches ?
+                            event.originalEvent.touches[ 0 ] :
+                            event;
+                    stop = {
+                        time: (new Date).getTime(),
+                        coords: [ data.pageX, data.pageY ]
+                    };
+
+                    // prevent scrolling
+                    if (Math.abs(start.coords[1] - stop.coords[1]) > 10) {
+                        event.preventDefault();
+                    }
+                }
+
+                $this
+                        .bind(touchMoveEvent, moveHandler)
+                        .one(touchStopEvent, function(event) {
+                    $this.unbind(touchMoveEvent, moveHandler);
+                    if (start && stop) {
+                        if (stop.time - start.time < 1000 &&
+                                Math.abs(start.coords[1] - stop.coords[1]) > 30 &&
+                                Math.abs(start.coords[0] - stop.coords[0]) < 75) {
+                            start.origin
+                                    .trigger("swipeupdown")
+                                    .trigger(start.coords[1] > stop.coords[1] ? "swipeup" : "swipedown");
                         }
-                        start = stop = undefined;
-                    });
+                    }
+                    start = stop = undefined;
                 });
-            }
-        };
+            });
+        }
+    };
 
 //Adds the events to the jQuery events special collection
-        $.each({
-            swipedown: "swipeupdown",
-            swipeup: "swipeupdown"
-        }, function(event, sourceEvent){
-            $.event.special[event] = {
-                setup: function(){
-                    $(this).bind(sourceEvent, $.noop);
-                }
-            };
-        });
-
-    })();
+    $.each({
+        swipedown: "swipeupdown",
+        swipeup: "swipeupdown"
+    }, function(event, sourceEvent){
+        $.event.special[event] = {
+            setup: function(){
+                $(this).bind(sourceEvent, $.noop);
+            }
+        };
+    });
+})();
 
 
 
@@ -340,9 +359,216 @@ $('#places').live('pageshow', function() {
     demo.add('places_2', function() { $('#map_canvas_3').gmap('refresh'); }).load('places_2');
 });
 
+// Charts
 
-
-
+$(document).delegate('#chart1', 'pageshow', function () {
+    $.jqplot.config.enablePlugins = true;
+    var s1 = [2, 6, 7, 10];
+    var ticks = ['a', 'b', 'c', 'd'];
+     
+    plot1 = $.jqplot('barChart', [s1], {
+        // Only animate if we're not using excanvas (not in IE 7 or IE 8)..
+        animate: !$.jqplot.use_excanvas,
+        seriesDefaults:{
+            renderer:$.jqplot.BarRenderer,
+            pointLabels: { show: true }
+        },
+        axes: {
+            xaxis: {
+                renderer: $.jqplot.CategoryAxisRenderer,
+                ticks: ticks
+            }
+        },
+        highlighter: { show: false }
+    });
+ 
+    $('#barChart').bind('jqplotDataClick', 
+        function (ev, seriesIndex, pointIndex, data) {
+            $('#barChartInfo').html('series: '+seriesIndex+', point: '+pointIndex+', data: '+data);
+        }
+    );
+}); 
+$(document).delegate('#chart2', 'pageshow', function () {
+    var data = [
+    ['Heavy Industry', 12],['Retail', 9], ['Light Industry', 14], 
+    ['Out of home', 16],['Commuting', 7], ['Orientation', 9]
+    ];
+    var plot1 = jQuery.jqplot ('pieChart1', [data], 
+        { 
+          seriesDefaults: {
+            // Make this a pie chart.
+            renderer: jQuery.jqplot.PieRenderer, 
+            rendererOptions: {
+              // Put data labels on the pie slices.
+              // By default, labels show the percentage of the slice.
+              showDataLabels: true
+            }
+          }, 
+          legend: { show:true, location: 'e' }
+        }
+    );
+});
+$(document).delegate('#chart3', 'pageshow', function () {
+    var l6 = [11, 9, 5, 12, 14, 8, 7, 9, 6, 11, 9, 3, 4];
+    var l7 = [4, 8, 5, 3, 6, 5, 3, 2, 6, 7, 4, 3, 2];
+    var l8 = [12, 6, 13, 11, 2, 3, 4, 2, 1, 5, 7, 4, 8];
+ 
+    var ticks = [[1,'Dec 10'], [2,'Jan 11'], [3,'Feb 11'], [4,'Mar 11'], [5,'Apr 11'], [6,'May 11'], [7,'Jun 11'], [8,'Jul 11'], [9,'Aug 11'], [10,'Sep 11'], [11,'Oct 11'], [12,'Nov 11'], [13,'Dec 11']]; 
+ 
+     
+    plot2 = $.jqplot('areaChart2',[l6, l7, l8],{
+       stackSeries: true,
+       showMarker: false,
+       highlighter: {
+        show: true,
+        showTooltip: false
+       },
+       seriesDefaults: {
+           fill: true,
+       },
+       series: [
+        {label: 'Beans'},
+        {label: 'Oranges'},
+        {label: 'Crackers'}
+       ],
+       legend: {
+        show: true,
+        placement: 'outsideGrid'
+       },
+       grid: {
+        drawBorder: false,
+        shadow: false
+       },
+       axes: {
+           xaxis: {
+              ticks: ticks,
+              tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+              tickOptions: {
+                angle: -90
+              },
+              drawMajorGridlines: false
+          }          
+        }
+    });
+     
+    // capture the highlighters highlight event and show a custom tooltip.
+    $('#areaChart2').bind('jqplotHighlighterHighlight',
+        function (ev, seriesIndex, pointIndex, data, plot) {
+            // create some content for the tooltip.  Here we want the label of the tick,
+            // which is not supplied to the highlighters standard tooltip.
+            var content = plot.series[seriesIndex].label + ', ' + plot.series[seriesIndex]._xaxis.ticks[pointIndex][1] + ', ' + data[1];
+            // get a handle on our custom tooltip element, which was previously created
+            // and styled.  Be sure it is initiallly hidden!
+            var elem = $('#customTooltipDiv');
+            elem.html(content);
+            // Figure out where to position the tooltip.
+            var h = elem.outerHeight();
+            var w = elem.outerWidth();
+            var left = ev.pageX - w - 10;
+            var top = ev.pageY - h - 10;
+            // now stop any currently running animation, position the tooltip, and fade in.
+            elem.stop(true, true).css({left:left, top:top}).fadeIn(200);
+        }
+    );
+     
+    // Hide the tooltip when unhighliting.
+    $('#areaChart2').bind('jqplotHighlighterUnhighlight',
+        function (ev) {
+            $('#customTooltipDiv').fadeOut(300);
+        }
+    );
+});
+$(document).delegate('#chart4', 'pageshow', function () {
+    var s1 = [[2002, 112000], [2003, 122000], [2004, 104000], [2005, 99000], [2006, 121000],
+    [2007, 148000], [2008, 114000], [2009, 133000], [2010, 161000], [2011, 173000]];
+    var s2 = [[2002, 10200], [2003, 10800], [2004, 11200], [2005, 11800], [2006, 12400],
+    [2007, 12800], [2008, 13200], [2009, 12600], [2010, 13100]];
+ 
+    plot1 = $.jqplot("plotChart1", [s2, s1], {
+        // Turns on animatino for all series in this plot.
+        animate: true,
+        // Will animate plot on calls to plot1.replot({resetAxes:true})
+        animateReplot: true,
+        cursor: {
+            show: true,
+            zoom: true,
+            looseZoom: true,
+            showTooltip: false
+        },
+        series:[
+            {
+                pointLabels: {
+                    show: true
+                },
+                renderer: $.jqplot.BarRenderer,
+                showHighlight: false,
+                yaxis: 'y2axis',
+                rendererOptions: {
+                    // Speed up the animation a little bit.
+                    // This is a number of milliseconds. 
+                    // Default for bar series is 3000. 
+                    animation: {
+                        speed: 2500
+                    },
+                    barWidth: 15,
+                    barPadding: -15,
+                    barMargin: 0,
+                    highlightMouseOver: false
+                }
+            },
+            {
+                rendererOptions: {
+                    // speed up the animation a little bit.
+                    // This is a number of milliseconds.
+                    // Default for a line series is 2500.
+                    animation: {
+                        speed: 2000
+                    }
+                }
+            }
+        ],
+        axesDefaults: {
+            pad: 0
+        },
+        axes: {
+            // These options will set up the x axis like a category axis.
+            xaxis: {
+                tickInterval: 1,
+                drawMajorGridlines: false,
+                drawMinorGridlines: true,
+                drawMajorTickMarks: false,
+                rendererOptions: {
+                tickInset: 0.5,
+                minorTicks: 1
+            }
+            },
+            yaxis: {
+                tickOptions: {
+                    formatString: "$%'d"
+                },
+                rendererOptions: {
+                    forceTickAt0: true
+                }
+            },
+            y2axis: {
+                tickOptions: {
+                    formatString: "$%'d"
+                },
+                rendererOptions: {
+                    // align the ticks on the y2 axis with the y axis.
+                    alignTicks: true,
+                    forceTickAt0: true
+                }
+            }
+        },
+        highlighter: {
+            show: true,
+            showLabel: true,
+            tooltipAxes: 'y',
+            sizeAdjust: 7.5 , tooltipLocation : 'ne'
+        }
+    });
+});
 
 // BOOK
 
@@ -369,7 +595,7 @@ $("#shelve div.book").bind('tap', function(event){
         //     height: 400,
         //     autoCenter: true
         // });
-        window.location = "book2.html";
+        window.location = "books/magazine/index.html";
         // $.mobile.changePage('book2.html');
         // $.mobile.changePage('http://www.turnjs.com/');
         // $.mobile.loadPage('book2.html');
@@ -410,4 +636,42 @@ $("#shelve div.book").bind('tap', function(event){
     });    
 });
 
+// Security
+var dt = {};
+var day = "";
+var hour = "";
+var keys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
 
+$(document).delegate('#security', 'pageshow', function () {
+    $("#security #enter").click(tryPassword);
+    reCalculate();
+});
+
+function reCalculate(){
+    dt = new Date();
+    day = ('0' + dt.getDate()).slice(-2);
+    hour = ('0' + dt.getHours()).slice(-2);
+    $('#security #day').text(day);
+    $('#security #hour').text(hour);
+    $('#security #passwordRevealed').text(toChars(day + hour));
+
+    setTimeout("reCalculate()",5000);
+};
+
+function toChars(number){
+    chars = "";
+    for (var i = 0, len = number.length; i < len; i++) {
+      chars += keys[number[i]];
+    };
+    return chars;
+}
+
+function tryPassword(){
+    if ($('#security #key').val().toUpperCase() == toChars(day + hour).toUpperCase()) {
+        $('#security #result').text("Contraseña correcta! :)");
+        $('#security #result').css('color', 'green');
+    }else{
+        $('#security #result').text("Contraseña incorrecta! :(");
+        $('#security #result').css('color', 'red');
+    };
+}
