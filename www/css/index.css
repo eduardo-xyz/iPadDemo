@@ -78,6 +78,24 @@ h1 {
     text-align:center;
 }
 
+.mainMenu{
+    position: absolute !important;
+    top: 5px !important;
+    left: 5px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.mainMenu div.ui-select{
+    width: 100% !important;
+}
+.mainControl{
+    position: absolute !important;
+    top: 5px !important;
+    left: 130px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 .event {
     border-radius:4px;
     -webkit-border-radius:4px;
@@ -129,23 +147,49 @@ h1 {
     margin: 2em 15px;
 }
 
+#menu #menuBackground{
+    background: url("../img/BRL2.png") no-repeat scroll center center transparent;
+    height: 300px;
+    width: 100%;
+}
+
 #tapDemo{
     width: 100%;
     height: 100px;
-    background-color: blue;
+    background-color: white;
+    text-align: center;
+    border: solid;
 }
 #tapDemo.tap{
-    background-color: red;   
+    background-color: black;   
 }
-
+#tapDemo span{
+    color: black;
+    display: inline-block;
+    font-size: xx-large;
+    margin-top: 30px;
+}
+#tapDemo.tap span{
+    color: white;
+}
 #tapHoldDemo{
     width: 100%;
     height: 100px;
-    background-color: pink;
+    background-color: blue;
+    text-align: center;
+    border: solid;
 }
-
 #tapHoldDemo.tap{
-    background-color: brown;
+    background-color: white;
+}
+#tapHoldDemo span{
+    color: white;
+    display: inline-block;
+    font-size: xx-large;
+    margin-top: 30px;
+}
+#tapHoldDemo.tap span{
+    color: blue;
 }
 
 #swipeDemo{

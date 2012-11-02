@@ -55,8 +55,31 @@ under the License.
 </head>
 <body>
 <div data-role="page" id="home">
-  <div data-role="header">
-    <h1>BRL research iPad Demo</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home" selected="true">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <p>Seleccione una opción para ver una demostración</p>    
@@ -65,12 +88,12 @@ under the License.
       <li><a href="#dialogs">Diálogos</a></li>
       <li><a href="#menu">Menús</a></li>
       <li><a href="#gestures">Gestos</a></li>
-      <li><a href="#transitions">Transisiones</a></li>
+      <li><a href="#transitions">Transiciones</a></li>
       <li><a href="#movility">Móvibles</a></li>
       <li><a href="#multimedia">Multimedia</a></li>
       <li><a href="#maps">Mapas</a></li>
       <li><a href="#charts">Gráficas</a></li>
-      <li><a href="#book">Demo tipo libro</a></li>
+      <li><a href="#book">Libro</a></li>
       <li><a href="#zoom">Zoom</a></li>
       <li><a href="#security">Seguridad</a></li>
       <li><a href="#internet">Internet</a></li>
@@ -80,29 +103,51 @@ under the License.
 </div><!-- /page -->
 
 <div data-role="page" id="controls">
-  <div data-role="header">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Controles</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls" selected="true">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <form method="get" action="#">
 
-      <h2>Ejemplos de controles</h2>
+      <h2>Ejemplos de controles para formularios</h2>
 
-      <p>Ejemplos de controles para formularios.</p>
+      <p>Estos y otros tipos de control pueden ser implementados para aplicaciones móviles.</p>
 
       <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-        <label for="name" class="ui-input-text">Text Input:</label>
+        <label for="name" class="ui-input-text">Texto Lineal:</label>
         <input type="text" value="" id="name" name="name" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
       </div>
 
       <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-        <label for="textarea" class="ui-input-text">Textarea:</label>
+        <label for="textarea" class="ui-input-text">Texto Multilínea:</label>
         <textarea id="textarea" name="textarea" rows="8" cols="40" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></textarea>
       </div>
 
       <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-        <label for="search-basic">Search Input:</label>
+        <label for="search-basic">Búsqueda por texto:</label>
         <input type="search" name="search" id="search-basic" value="" />
         <!-- <label for="search" class="ui-input-text">Search Input:</label>
         <div class="ui-input-search ui-shadow-inset ui-btn-corner-all ui-btn-shadow ui-icon-searchfield ui-body-c">
@@ -117,7 +162,7 @@ under the License.
       </div>
 
       <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-        <label for="slider2" id="slider2-label" class="ui-slider">Flip switch:</label>
+        <label for="slider2" id="slider2-label" class="ui-slider">Switch:</label>
         <select data-role="slider" id="slider2" name="slider2" class="ui-slider-switch">
           <option value="off">Off</option>
           <option value="on">On</option>
@@ -136,7 +181,7 @@ under the License.
       </div>
 
       <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-        <label for="slider" class="ui-input-text ui-slider" id="slider-label">Slider:</label>
+        <label for="slider" class="ui-input-text ui-slider" id="slider-label">Control de barra:</label>
         <input type="number" data-type="range" data-highlight="true" max="100" min="0" value="50" id="slider" name="slider" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset ui-slider-input"/>
         <!-- <div role="application" class="ui-slider  ui-btn-down-c ui-btn-corner-all">
           <div class="ui-slider-bg ui-btn-active ui-btn-corner-all" style="width: 50%;"></div>
@@ -148,60 +193,60 @@ under the License.
         </div> -->
       </div>
 
-      <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical"><div class="ui-controlgroup-label" role="heading">Choose as many snacks as you'd like:</div><div class="ui-controlgroup-controls">
+      <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical"><div class="ui-controlgroup-label" role="heading">Selección Múltiple (Check):</div><div class="ui-controlgroup-controls">
 
-      <div class="ui-checkbox"><input type="checkbox" class="custom" id="checkbox-1a" name="checkbox-1a"><label for="checkbox-1a" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="checkbox-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-checkbox-off ui-corner-top"><span class="ui-btn-inner ui-corner-top"><span class="ui-btn-text">Cheetos</span><span class="ui-icon ui-icon-checkbox-off ui-icon-shadow">&nbsp;</span></span></label></div>
-
-
-      <div class="ui-checkbox"><input type="checkbox" class="custom" id="checkbox-2a" name="checkbox-2a"><label for="checkbox-2a" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="checkbox-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-checkbox-off"><span class="ui-btn-inner"><span class="ui-btn-text">Doritos</span><span class="ui-icon ui-icon-checkbox-off ui-icon-shadow">&nbsp;</span></span></label></div>
+      <div class="ui-checkbox"><input type="checkbox" class="custom" id="checkbox-1a" name="checkbox-1a"><label for="checkbox-1a" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="checkbox-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-checkbox-off ui-corner-top"><span class="ui-btn-inner ui-corner-top"><span class="ui-btn-text">Cheetos</span></span></label></div>
 
 
-      <div class="ui-checkbox"><input type="checkbox" class="custom" id="checkbox-3a" name="checkbox-3a"><label for="checkbox-3a" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="checkbox-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-checkbox-off"><span class="ui-btn-inner"><span class="ui-btn-text">Fritos</span><span class="ui-icon ui-icon-checkbox-off ui-icon-shadow">&nbsp;</span></span></label></div>
+      <div class="ui-checkbox"><input type="checkbox" class="custom" id="checkbox-2a" name="checkbox-2a"><label for="checkbox-2a" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="checkbox-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-checkbox-off"><span class="ui-btn-inner"><span class="ui-btn-text">Doritos</span></span></label></div>
 
 
-      <div class="ui-checkbox"><input type="checkbox" class="custom" id="checkbox-4a" name="checkbox-4a"><label for="checkbox-4a" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="checkbox-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-checkbox-off ui-corner-bottom ui-controlgroup-last"><span class="ui-btn-inner ui-corner-bottom ui-controlgroup-last"><span class="ui-btn-text">Sun Chips</span><span class="ui-icon ui-icon-checkbox-off ui-icon-shadow">&nbsp;</span></span></label></div>
-
-      </div></fieldset></div>
-
-      <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><fieldset data-type="horizontal" data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal"><div class="ui-controlgroup-label" role="heading">Font styling:</div><div class="ui-controlgroup-controls">
-
-      <div class="ui-checkbox"><input type="checkbox" class="custom" id="checkbox-6" name="checkbox-6"><label for="checkbox-6" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-checkbox-off ui-corner-left"><span class="ui-btn-inner ui-corner-left"><span class="ui-btn-text">b</span></span></label></div>
+      <div class="ui-checkbox"><input type="checkbox" class="custom" id="checkbox-3a" name="checkbox-3a"><label for="checkbox-3a" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="checkbox-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-checkbox-off"><span class="ui-btn-inner"><span class="ui-btn-text">Fritos</span></span></label></div>
 
 
-      <div class="ui-checkbox"><input type="checkbox" class="custom" id="checkbox-7" name="checkbox-7"><label for="checkbox-7" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-checkbox-off"><span class="ui-btn-inner"><span class="ui-btn-text"><em>i</em></span></span></label></div>
-
-
-      <div class="ui-checkbox"><input type="checkbox" class="custom" id="checkbox-8" name="checkbox-8"><label for="checkbox-8" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-checkbox-off ui-corner-right ui-controlgroup-last"><span class="ui-btn-inner ui-corner-right ui-controlgroup-last"><span class="ui-btn-text">u</span></span></label></div>
+      <div class="ui-checkbox"><input type="checkbox" class="custom" id="checkbox-4a" name="checkbox-4a"><label for="checkbox-4a" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="checkbox-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-checkbox-off ui-corner-bottom ui-controlgroup-last"><span class="ui-btn-inner ui-corner-bottom ui-controlgroup-last"><span class="ui-btn-text">Sun Chips</span></span></label></div>
 
       </div></fieldset></div>
 
-      <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical"><div class="ui-controlgroup-label" role="heading">Choose a pet:</div><div class="ui-controlgroup-controls">
+      <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><fieldset data-type="horizontal" data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal"><div class="ui-controlgroup-label" role="heading">Selección Múltiple (Botón):</div><div class="ui-controlgroup-controls">
 
-      <div class="ui-radio"><input type="radio" checked="checked" value="choice-1" id="radio-choice-1" name="radio-choice-1"><label for="radio-choice-1" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-radio-on ui-corner-top"><span class="ui-btn-inner ui-corner-top"><span class="ui-btn-text">Cat</span><span class="ui-icon ui-icon-shadow ui-icon-radio-on">&nbsp;</span></span></label></div>
-
-
-      <div class="ui-radio"><input type="radio" value="choice-2" id="radio-choice-2" name="radio-choice-1"><label for="radio-choice-2" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-radio-off"><span class="ui-btn-inner"><span class="ui-btn-text">Dog</span><span class="ui-icon ui-icon-radio-off ui-icon-shadow">&nbsp;</span></span></label></div>
+      <div class="ui-checkbox"><input type="checkbox" class="custom" id="checkbox-6" name="checkbox-6"><label for="checkbox-6" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-checkbox-off ui-corner-left"><span class="ui-btn-text">b</span></label></div>
 
 
-      <div class="ui-radio"><input type="radio" value="choice-3" id="radio-choice-3" name="radio-choice-1"><label for="radio-choice-3" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-radio-off"><span class="ui-btn-inner"><span class="ui-btn-text">Hamster</span><span class="ui-icon ui-icon-radio-off ui-icon-shadow">&nbsp;</span></span></label></div>
+      <div class="ui-checkbox"><input type="checkbox" class="custom" id="checkbox-7" name="checkbox-7"><label for="checkbox-7" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-checkbox-off"><span class="ui-btn-text"><em>i</em></span></label></div>
 
 
-      <div class="ui-radio"><input type="radio" value="choice-4" id="radio-choice-4" name="radio-choice-1"><label for="radio-choice-4" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-radio-off ui-corner-bottom ui-controlgroup-last"><span class="ui-btn-inner ui-corner-bottom ui-controlgroup-last"><span class="ui-btn-text">Lizard</span><span class="ui-icon ui-icon-radio-off ui-icon-shadow">&nbsp;</span></span></label></div>
+      <div class="ui-checkbox"><input type="checkbox" class="custom" id="checkbox-8" name="checkbox-8"><label for="checkbox-8" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-checkbox-off ui-corner-right ui-controlgroup-last"><span class="ui-btn-text">u</span></label></div>
 
       </div></fieldset></div>
 
-      <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><fieldset data-type="horizontal" data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal"><div class="ui-controlgroup-label" role="heading">Layout view:</div><div class="ui-controlgroup-controls">
+      <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical"><div class="ui-controlgroup-label" role="heading">Selección Única (Punto):</div><div class="ui-controlgroup-controls">
 
-      <div class="ui-radio"><input type="radio" checked="checked" value="on" id="radio-choice-c" name="radio-choice-b"><label for="radio-choice-c" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-radio-on ui-btn-active ui-corner-left"><span class="ui-btn-inner ui-corner-left"><span class="ui-btn-text">List</span></span></label></div>
+      <div class="ui-radio"><input type="radio" checked="checked" value="choice-1" id="radio-choice-1" name="radio-choice-1"><label for="radio-choice-1" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-radio-on ui-corner-top"><span class="ui-btn-inner ui-corner-top"><span class="ui-btn-text">Cat</span></span></label></div>
 
-      <div class="ui-radio"><input type="radio" value="off" id="radio-choice-d" name="radio-choice-b"><label for="radio-choice-d" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-radio-off"><span class="ui-btn-inner"><span class="ui-btn-text">Grid</span></span></label></div>
 
-      <div class="ui-radio"><input type="radio" value="other" id="radio-choice-e" name="radio-choice-b"><label for="radio-choice-e" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-radio-off ui-corner-right ui-controlgroup-last"><span class="ui-btn-inner ui-corner-right ui-controlgroup-last"><span class="ui-btn-text">Gallery</span></span></label></div>
+      <div class="ui-radio"><input type="radio" value="choice-2" id="radio-choice-2" name="radio-choice-1"><label for="radio-choice-2" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-radio-off"><span class="ui-btn-inner"><span class="ui-btn-text">Dog</span></span></label></div>
+
+
+      <div class="ui-radio"><input type="radio" value="choice-3" id="radio-choice-3" name="radio-choice-1"><label for="radio-choice-3" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-radio-off"><span class="ui-btn-inner"><span class="ui-btn-text">Hamster</span></span></label></div>
+
+
+      <div class="ui-radio"><input type="radio" value="choice-4" id="radio-choice-4" name="radio-choice-1"><label for="radio-choice-4" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-radio-off ui-corner-bottom ui-controlgroup-last"><span class="ui-btn-inner ui-corner-bottom ui-controlgroup-last"><span class="ui-btn-text">Lizard</span></span></label></div>
+
+      </div></fieldset></div>
+
+      <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><fieldset data-type="horizontal" data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal"><div class="ui-controlgroup-label" role="heading">Selección Única (Botón):</div><div class="ui-controlgroup-controls">
+
+      <div class="ui-radio"><input type="radio" checked="checked" value="on" id="radio-choice-c" name="radio-choice-b"><label for="radio-choice-c" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-radio-on ui-btn-active ui-corner-left"><span class="ui-btn-text">List</span></label></div>
+
+      <div class="ui-radio"><input type="radio" value="off" id="radio-choice-d" name="radio-choice-b"><label for="radio-choice-d" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-radio-off"><span class="ui-btn-text">Grid</span></label></div>
+
+      <div class="ui-radio"><input type="radio" value="other" id="radio-choice-e" name="radio-choice-b"><label for="radio-choice-e" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-radio-off ui-corner-right ui-controlgroup-last"><span class="ui-btn-text">Gallery</span></label></div>
 
       </div></fieldset></div>
 
       <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-        <label for="select-choice-0" class="select">Shipping method:</label>
+        <label for="select-choice-0" class="select">Selección por Lista Corta:</label>
         <select name="select-choice-0" id="select-choice-0">
            <option value="standard">Standard: 7 day</option>
            <option value="rush">Rush: 3 days</option>
@@ -211,7 +256,7 @@ under the License.
       </div>
 
       <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-        <label class="select ui-select" for="select-choice-3">Your state:</label>
+        <label class="select ui-select" for="select-choice-3">Selección por Lista Larga:</label>
         <select id="select-choice-3" name="select-choice-3">
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -267,7 +312,7 @@ under the License.
       </div>
 
       <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-        <label class="select ui-select" for="select-choice-a">Choose shipping method:</label>
+        <label class="select ui-select" for="select-choice-a">Cuadro de Acción:</label>
         <div class="ui-select">
           <select data-native-menu="false" id="select-choice-a" name="select-choice-a" tabindex="-1">
             <option data-placeholder="true">Custom menu example</option>
@@ -304,19 +349,92 @@ under the License.
   </div><!-- /content -->
 </div><!-- /page -->
 
+
+
+
+
+
+
+
+
+
+
 <div data-role="page" id="dialogs">
-  <div data-role="header">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Diálogos</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs" selected="true">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">
     <h2>Diálogos de pantalla completa</h2>
     <a href="dialog.html" data-role="button" data-rel="dialog" data-transition="pop">Open normal dialog</a>
-    <a href="dialog.html" data-role="button" data-rel="dialog" data-transition="slidedown">Open slidedown dialog"</a>
+    <a href="dialog.html" data-role="button" data-rel="dialog" data-transition="slidedown">Open slidedown dialog</a>
     <a href="dialog.html" data-role="button" data-rel="dialog" data-transition="flip">Open flip dialog</a>
     <a href="dialog-alt.html" data-role="button" data-rel="dialog" data-transition="pop">Open an alternate color scheme dialog</a>
     <a href="dialog-overlay.html" data-role="button" data-rel="dialog" data-transition="pop">Custom overlay swatch</a>
     <a href="dialog-buttons.html" data-role="button" data-rel="dialog" data-transition="slidedown">Share photos...</a>
+  </div><!-- /content -->
+  <div data-role="footer" id="dialogsNav" data-position="fixed">    
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#dialogs">Pantalla completa</a></li>
+        <li><a href="#dialogs2">PopUp</a></li>
+        <li><a href="#dialogs3">Animaciones</a></li>
+        <li><a href="#dialogs4">Personalisados</a></li>
+      </ul>
+    </div><!-- /navbar -->
+  </div><!-- /footer -->
+</div><!-- /page -->
+
+<div data-role="page" id="dialogs2">
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs" selected="true">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
+  </div><!-- /header -->
+  <div data-role="content">
     <h2>Diálogos tipo popup</h2>
     <a href="#popupBasic" data-rel="popup" data-role="button">Open Popup</a>
     <div data-role="popup" id="popupBasic">
@@ -347,37 +465,37 @@ under the License.
         <div data-role="collapsible" data-inset="false">
           <h2>Farm animals</h2>
           <ul data-role="listview">
-            <li><a href="../dialog.html" data-rel="dialog">Chicken</a></li>
-            <li><a href="../dialog.html" data-rel="dialog">Cow</a></li>
-            <li><a href="../dialog.html" data-rel="dialog">Duck</a></li>
-            <li><a href="../dialog.html" data-rel="dialog">Sheep</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Chicken</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Cow</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Duck</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Sheep</a></li>
           </ul>
         </div><!-- /collapsible -->
         <div data-role="collapsible" data-inset="false">
           <h2>Pets</h2>
           <ul data-role="listview">
-            <li><a href="../dialog.html" data-rel="dialog">Cat</a></li>
-            <li><a href="../dialog.html" data-rel="dialog">Dog</a></li>
-            <li><a href="../dialog.html" data-rel="dialog">Iguana</a></li>
-            <li><a href="../dialog.html" data-rel="dialog">Mouse</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Cat</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Dog</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Iguana</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Mouse</a></li>
           </ul>
         </div><!-- /collapsible -->
         <div data-role="collapsible" data-inset="false">
           <h2>Ocean Creatures</h2>
           <ul data-role="listview">
-            <li><a href="../dialog.html" data-rel="dialog">Fish</a></li>
-            <li><a href="../dialog.html" data-rel="dialog">Octopus</a></li>
-            <li><a href="../dialog.html" data-rel="dialog">Shark</a></li>
-            <li><a href="../dialog.html" data-rel="dialog">Starfish</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Fish</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Octopus</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Shark</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Starfish</a></li>
           </ul>
         </div><!-- /collapsible -->
         <div data-role="collapsible" data-inset="false">
           <h2>Wild Animals</h2>
           <ul data-role="listview">
-            <li><a href="../dialog.html" data-rel="dialog">Lion</a></li>
-            <li><a href="../dialog.html" data-rel="dialog">Monkey</a></li>
-            <li><a href="../dialog.html" data-rel="dialog">Tiger</a></li>
-            <li><a href="../dialog.html" data-rel="dialog">Zebra</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Lion</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Monkey</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Tiger</a></li>
+            <li><a href="dialog.html" data-rel="dialog">Zebra</a></li>
           </ul>
         </div><!-- /collapsible -->
       </div><!-- /collapsible set -->
@@ -428,12 +546,52 @@ under the License.
       <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-left">Close</a>
       <p>I have a close button at the top left corner with simple HTML markup.</p>
     </div>
+  </div><!-- /content -->
+  <div data-role="footer" id="dialogsNav" data-position="fixed">    
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#dialogs">Pantalla completa</a></li>
+        <li><a href="#dialogs2">PopUp</a></li>
+        <li><a href="#dialogs3">Animaciones</a></li>
+        <li><a href="#dialogs4">Personalisados</a></li>
+      </ul>
+    </div><!-- /navbar -->
+  </div><!-- /footer -->
+</div><!-- /page -->
 
+<div data-role="page" id="dialogs3">
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs" selected="true">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
+  </div><!-- /header -->
+  <div data-role="content">
     <h2>Popups con animaciones</h2>
 
     <a href="#transitionExample" data-transition="none" data-role="button" data-rel="popup">No transition</a>
     <a href="#transitionExample" data-transition="pop" data-role="button" data-rel="popup">Pop</a>
-    <a href="#transitionExample" data-transition="fade" data-role="button" data-rel="``popup">Fade</a>
+    <a href="#transitionExample" data-transition="fade" data-role="button" data-rel="popup">Fade</a>
     <a href="#transitionExample" data-transition="flip" data-role="button" data-rel="popup">Flip</a>
     <a href="#transitionExample" data-transition="turn" data-role="button" data-rel="popup">Turn</a>
     <a href="#transitionExample" data-transition="flow" data-role="button" data-rel="popup">Flow</a>
@@ -444,7 +602,47 @@ under the License.
     <div data-role="popup" id="transitionExample" class="ui-content" data-theme="d">
       <p>I'm a simple popup.</p>
     </div>
+  </div><!-- /content -->
+  <div data-role="footer" id="dialogsNav" data-position="fixed">    
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#dialogs">Pantalla completa</a></li>
+        <li><a href="#dialogs2">PopUp</a></li>
+        <li><a href="#dialogs3">Animaciones</a></li>
+        <li><a href="#dialogs4">Personalisados</a></li>
+      </ul>
+    </div><!-- /navbar -->
+  </div><!-- /footer -->
+</div><!-- /page -->
 
+<div data-role="page" id="dialogs4">
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs" selected="true">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
+  </div><!-- /header -->
+  <div data-role="content">
     <h2>Popups personalisados</h2>
     <a href="#theme" data-rel="popup" data-role="button" >Theme A</a>
     <div id="theme" data-role="popup" data-theme="a" class="ui-content">
@@ -467,57 +665,117 @@ under the License.
       <p>I have <code>data-theme="e"</code> and <code>data-overlay-theme="a"</code> set on me</p>
     </div>
   </div><!-- /content -->
+  <div data-role="footer" id="dialogsNav" data-position="fixed">    
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#dialogs">Pantalla completa</a></li>
+        <li><a href="#dialogs2">PopUp</a></li>
+        <li><a href="#dialogs3">Animaciones</a></li>
+        <li><a href="#dialogs4">Personalisados</a></li>
+      </ul>
+    </div><!-- /navbar -->
+  </div><!-- /footer -->
 </div><!-- /page -->
 
+
+
+
+
+
 <div data-role="page" id="menu">
-  <div data-role="header" data-position="fixed">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Menús</h1>
-    <a href="" data-icon="check" data-theme="b">Save</a>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu" selected="true">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <div data-role="navbar">
       <ul>
-        <li><a href="" class="ui-btn-active ui-state-persist">One</a></li>
-        <li><a href="">Two</a></li>
-        <li><a href="">three</a></li>
-        <li><a href="">four</a></li>
+        <li><a href="" class="ui-btn-active ui-state-persist">Uno</a></li>
+        <li><a href="">Dos</a></li>
+        <li><a href="">Tres</a></li>
+        <li><a href="">Cuatro</a></li>
       </ul>
     </div><!-- /navbar -->
-    <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button">Open panel</a>
+    <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window" data-role="button">Ver panel derecho</a>
     <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
-      <button data-theme="a" data-icon="back" data-mini="true">Back</button>
+      <button data-theme="a" data-icon="back" data-mini="true">Atras</button>
       <button data-theme="a" data-icon="grid" data-mini="true">Menu</button>
-      <button data-theme="a" data-icon="search" data-mini="true">Search</button>
+      <button data-theme="a" data-icon="search" data-mini="true">Buscar</button>
+  </div>
+  <div id="menuBackground">
   </div>
   </div><!-- /content -->
   <div data-role="footer" class="ui-bar" data-position="fixed">
-    <a href="" data-role="button" data-icon="plus">Add</a>
+    <a href="" data-role="button" data-icon="plus">Agregar</a>
     <a href="" data-role="button" data-icon="arrow-u">Up</a>
     <a href="" data-role="button" data-icon="arrow-d">Down</a>
     <div data-role="navbar">
       <ul>
-        <li><a href="" data-icon="gear">One</a></li>
-        <li><a href="" data-icon="grid">Two</a></li>
-        <li><a href="" data-icon="star">Three</a></li>
+        <li><a href="" data-icon="gear">Ocho</a></li>
+        <li><a href="" data-icon="grid">Nueve</a></li>
+        <li><a href="" data-icon="star">Diez</a></li>
       </ul>
     </div><!-- /navbar -->
   </div><!-- /footer  -->
 </div><!-- /page -->
 
 <div data-role="page" id="gestures">
-  <div data-role="header">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Gestos</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures" selected="true">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <h2>Tap</h2>
     <div id="tapDemo">
-      <!--  -->
+      <span>Toque aquí!</span>
     </div>
     <h2>Tap sostenido </h2>
     <div id="tapHoldDemo">
-      <!--  -->
+      <span>Mantenga presionado aquí!</span>
     </div>
     <h2>Swipe vertical</h2>
     <div id="swipeDemo">
@@ -531,15 +789,37 @@ under the License.
         <!--  -->
       </div>
     </div>
-    <h2>Horientación</h2>
+    <h2>Orientación</h2>
     <h3 id="horientation">?????????</h3>
   </div><!-- /content -->
 </div><!-- /page -->
 
 <div data-role="page" id="transitions">
-  <div data-role="header">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Transiciones</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions" selected="true">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <table margin="0">
@@ -598,9 +878,31 @@ under the License.
 </div><!-- /page -->
 
 <div data-role="page" id="movility">
-  <div data-role="header">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Movilidad</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility" selected="true">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <div id="movilityContent">
@@ -655,46 +957,118 @@ under the License.
 </div><!-- /page -->
 
 <div data-role="page" id="multimedia">
-  <div data-role="header">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Multimedia</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia" selected="true">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
-    <h2>Reproducción de audio</h2>
-    <audio controls="controls">
-      <source src="img/market.wav" type="audio/wav">
-      <source src="img/market.mp3" type="audio/mp3">
-      Audio element not supported.
-    </audio>
-    <h2>Reproducción de video</h2>
-    <video width="320" height="240" controls="controls">
-      <source src="img/movie.mp4" type="video/mp4">
-      <!-- <source src="movie.ogg" type="video/ogg"> -->
-      Video element not supported.
-    </video>
+    <fieldset class="ui-grid-a">
+      <div class="ui-block-a">
+        <h2>Reproducción de audio</h2>
+        <audio controls="controls">
+          <source src="img/market.wav" type="audio/wav">
+          <source src="img/market.mp3" type="audio/mp3">
+          Audio element not supported.
+        </audio>
+      </div>
+      <div class="ui-block-b">
+        <h2>Reproducción de video</h2>
+        <video width="320" height="240" controls="controls">
+          <source src="img/movie.mp4" type="video/mp4">
+          <!-- <source src="movie.ogg" type="video/ogg"> -->
+          Video element not supported.
+        </video>
+      </div>     
+    </fieldset>
   </div><!-- /content -->
 </div><!-- /page -->
 
 <div data-role="page" id="maps">
-  <div data-role="header">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Mapas</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps" selected="true">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="a"> 
-      <li><a href="#basic_map">Basic map example</a></li> 
-      <li><a href="#gps_map">Basic map example with geolocation</a></li>
-      <li><a href="#directions_map">Get directions example</a></li> 
-      <li><a href="#places">Search for places</a></li>
+      <li><a href="#basic_map">Ejemplo de mapa simple</a></li> 
+      <li><a href="#gps_map">Ejemplo con geolocalización</a></li>
+      <li><a href="#directions_map">Ejemplo de consulta de direcciones</a></li> 
+      <li><a href="#places">Búsqueda de lugares</a></li>
     </ul>
   </div><!-- /content -->
 </div><!-- /page -->
 
 <div id="basic_map" data-role="page">
-  <div data-role="header">
-    <h1>Maps</h1>
-    <a data-rel="back">Back</a>
-  </div>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps" selected="true">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
+  </div><!-- /header -->
   <div data-role="content"> 
     <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
       <div id="map_canvas" style="height:600px;"></div>
@@ -703,10 +1077,32 @@ under the License.
 </div>
 
 <div id="gps_map" data-role="page">
-  <div data-role="header">
-    <h1>Maps</h1>
-    <a data-rel="back">Back</a>
-  </div>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps" selected="true">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
+  </div><!-- /header -->
   <div data-role="content"> 
     <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
       <div id="map_canvas_2" style="height:600px;"></div>
@@ -715,13 +1111,35 @@ under the License.
 </div>
 
 <div id="directions_map" data-role="page">
-  <div data-role="header">
-    <h1>Maps</h1>
-    <a data-rel="back">Back</a>
-  </div>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps" selected="true">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
+  </div><!-- /header -->
   <div data-role="content"> 
     <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
-      <div id="map_canvas_1" style="height:400px;"></div>
+      <div id="map_canvas_1" style="height:200px;"></div>
       <p>
         <label for="from">From</label>
         <input id="from" class="ui-bar-c" type="text" value="G&ouml;teborg, Sweden" />
@@ -741,56 +1159,126 @@ under the License.
 </div>
 
 <div id="places" data-role="page">
-  <div data-role="header" data-add-back-btn="true">
-    <h1>Maps</h1>
-    <a data-rel="back">Back</a>
-  </div>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps" selected="true">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
+  </div><!-- /header -->
   <div data-role="content">
     <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
-      <div id="map_canvas_3" style="height:400px;"></div>
+      <div id="map_canvas_3" style="height:300px;"></div>
     </div>
     <p>This example is using Google geocode for the autocomplete function (which might not be the best way for mobile devices) and Google Places for the results.<p>
   </div>
 </div>
 
 <div data-role="page" id="charts">
-  <div data-role="header">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Gráficas</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts" selected="true">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <div class="ui-grid-a">
       <div class="ui-block-a">
-        <a href="#chart1" data-role="button" data-theme="c">Barras</a>
-        <div class="chartPic">
-          <img src="img/charts/bars.png"/>
-        </div>
+        <a href="#chart1" data-role="button" data-theme="c">Barras
+          <div class="chartPic">
+            <img src="img/charts/bars.png"/>
+          </div>
+        </a>
       </div>
       <div class="ui-block-b">
-        <a href="#chart2" data-role="button" data-theme="c">Pie</a>
-        <div class="chartPic">
-          <img src="img/charts/pie.png"/>
-        </div>
+        <a href="#chart2" data-role="button" data-theme="c">Pastel
+          <div class="chartPic">
+            <img src="img/charts/pie.png"/>
+          </div>
+        </a>
       </div>
       <div class="ui-block-a">
-        <a href="#chart3" data-role="button" data-theme="c">Area</a>
-        <div class="chartPic">
-          <img src="img/charts/area.png"/>
-        </div>
+        <a href="#chart3" data-role="button" data-theme="c">Área
+          <div class="chartPic">
+            <img src="img/charts/area.png"/>
+          </div>
+        </a>
       </div>
       <div class="ui-block-b">
-        <a href="#chart4" data-role="button" data-theme="c">Plots</a>
-        <div class="chartPic">
-          <img src="img/charts/plots.png"/>
-        </div>
+        <a href="#chart4" data-role="button" data-theme="c">Puntos
+          <div class="chartPic">
+            <img src="img/charts/plots.png"/>
+          </div>
+        </a>
       </div>     
     </div>
   </div><!-- /content -->
 </div><!-- /page -->
 <div data-role="page" id="chart1">
-  <div data-role="header">
-    <a href="#charts" data-icon="arrow-l">Gráficas</a>
-    <h1>Gráfico de barras</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts" selected="true">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <div><span>Seleccionó: </span><span id="barChartInfo">Nada aun</span></div>
@@ -798,27 +1286,121 @@ under the License.
   </div><!-- /content -->
 </div><!-- /page -->
 <div data-role="page" id="chart2">
-  <div data-role="header">
-    <a href="#charts" data-icon="arrow-l">Gráficas</a>
-    <h1>Gráfico de tipo pastel</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts" selected="true">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
-  <div data-role="content">   
-    <div id="pieChart1" style="height:300px; width:500px;"></div>
+  <div data-role="content">
+    <div class="ui-grid-a">
+      <div class="ui-block-a">
+        <div id="pieChart1" style="height:300px; width:500px;"></div>
+      </div>
+      <div class="ui-block-b">
+        <a id="refresh" data-role="button">Refrescar</a>
+      </div>
+    </div><!-- /grid-a -->
+    
+
+
+    <label for="slider-1">Heavy Industry:</label>
+    <input type="range" name="slider-1" id="slider-1" value="18" min="0" max="100" data-mini="true"/>
+
+    <label for="slider-2">Retail:</label>
+    <input type="range" name="slider-2" id="slider-2" value="13" min="0" max="100" data-mini="true"/>
+
+    <label for="slider-3">Light Industry:</label>
+    <input type="range" name="slider-3" id="slider-3" value="21" min="0" max="100" data-mini="true"/>
+
+    <label for="slider-4">Out of home:</label>
+    <input type="range" name="slider-4" id="slider-4" value="24" min="0" max="100" data-mini="true"/>
+
+    <label for="slider-5">Commuting:</label>
+    <input type="range" name="slider-5" id="slider-5" value="10" min="0" max="100" data-mini="true"/>
+
+    <label for="slider-6">Orientation:</label>
+    <input type="range" name="slider-6" id="slider-6" value="13" min="0" max="100" data-mini="true"/>
+
   </div><!-- /content -->
 </div><!-- /page -->
 <div data-role="page" id="chart3">
-  <div data-role="header">
-    <a href="#charts" data-icon="arrow-l">Gráficas</a>
-    <h1>Gráfico de areas</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts" selected="true">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <div id="areaChart2" style="width:600px;height:260px;"></div>
   </div><!-- /content -->
 </div><!-- /page -->
 <div data-role="page" id="chart4">
-  <div data-role="header">
-    <a href="#charts" data-icon="arrow-l">Gráficas</a>
-    <h1>Gráfico complejo</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts" selected="true">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <div id="plotChart1" style="width:700px; height:300px"></div>
@@ -826,9 +1408,31 @@ under the License.
 </div><!-- /page -->
 
 <div data-role="page" id="book">
-  <div data-role="header">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Demostración tipo libro</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book" selected="true">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <div id="shelve">
@@ -848,9 +1452,31 @@ under the License.
 </div><!-- /page -->
 
 <div data-role="page" id="zoom">
-  <div data-role="header">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Demostración de zoom</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom" selected="true">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <div class="ui-grid-a">
@@ -909,9 +1535,31 @@ under the License.
   </div><!-- /footer -->
 </div><!-- /page -->
 <div data-role="page" id="zoom2">
-  <div data-role="header">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Base de datos</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom" selected="true">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <img src="img/big_big_buck_bunny.jpeg">
@@ -927,9 +1575,31 @@ under the License.
 </div><!-- /page -->
 
 <div data-role="page" id="security">
-  <div data-role="header">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Algoritmos de seguridad</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security" selected="true">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <h2>Algoritmo actual.</h2>
@@ -981,9 +1651,31 @@ under the License.
 </div><!-- /page -->
 
 <div data-role="page" id="internet">
-  <div data-role="header">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Uso de internet</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet" selected="true">Internet</option>
+        <option value="#dataBase">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <h2>Imagen externa</h2>
@@ -996,9 +1688,31 @@ under the License.
 </div><!-- /page -->
 
 <div data-role="page" id="dataBase">
-  <div data-role="header">
-    <a href="#home" data-icon="arrow-l">Menú</a>
-    <h1>Base de datos</h1>
+  <div data-role="header" data-id="mainHeader" data-position="fixed">
+    <div data-role="fieldcontain" data-inline="true" class="mainMenu">
+      <select data-icon="grid" class="mainSelect">
+        <option value="#home">Inicio</option>
+        <option value="#controls">Controles</option>
+        <option value="#dialogs">Diálogos</option>
+        <option value="#menu">Menús</option>
+        <option value="#gestures">Gestos</option>
+        <option value="#transitions">Transiciones</option>
+        <option value="#movility">Móvibles</option>
+        <option value="#multimedia">Multimedia</option>
+        <option value="#maps">Mapas</option>
+        <option value="#charts">Gráficas</option>
+        <option value="#book">Libro</option>
+        <option value="#zoom">Zoom</option>
+        <option value="#security">Seguridad</option>
+        <option value="#internet">Internet</option>
+        <option value="#dataBase" selected="true">Base de datos</option>
+      </select>
+    </div>
+    <div data-role="controlgroup" data-type="horizontal" class="mainControl">
+      <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+    </div>
+    <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     

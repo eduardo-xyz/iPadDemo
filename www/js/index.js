@@ -146,8 +146,16 @@ var app = {
     });
 })();
 
-
-
+$(function(){
+    // bind change event to select
+    $('select.mainSelect').bind('change', function () {
+        var url = $(this).val(); // get selected value
+        if (url) { // require a URL
+            $.mobile.changePage( url, { transition: "slide"} );
+        }
+        return false;
+    });
+});
 
 $( "#popupPanel" ).on({
     popupbeforeposition: function() {
@@ -193,6 +201,14 @@ $("#swipeHDemo").bind('swipeleft', function(){
 $("#swipeHDemo").bind('swiperight', function(){
     $this = $("#swipeHDemo div");
     $this.css({left:"0%"}).animate({"left":"50%"}, "slow");
+});
+
+$(document).delegate('#gestures', 'pageshow', function () {
+    if(window.innerHeight > window.innerWidth){
+        $("#horientation").text("Portrait");
+    }else{
+        $("#horientation").text("Landscape");
+    };
 });
 
 $(document).bind('orientationchange', function(e){
@@ -243,7 +259,7 @@ $('#movility .dragbox').each(function(){
 
 // GOOGLE MAPS
 
-var mobileDemo = { 'center': '57.7973333,12.0502107', 'zoom': 10 };
+var mobileDemo = { 'center': '9.922860,-84.045822', 'zoom': 10 };
             
 ////////////////////////////////////////////////////////////
 
@@ -388,12 +404,14 @@ $(document).delegate('#chart1', 'pageshow', function () {
         }
     );
 }); 
+
+var dinamicPlot1;
 $(document).delegate('#chart2', 'pageshow', function () {
     var data = [
     ['Heavy Industry', 12],['Retail', 9], ['Light Industry', 14], 
     ['Out of home', 16],['Commuting', 7], ['Orientation', 9]
     ];
-    var plot1 = jQuery.jqplot ('pieChart1', [data], 
+    dinamicPlot1 = jQuery.jqplot ('pieChart1', [data], 
         { 
           seriesDefaults: {
             // Make this a pie chart.
@@ -407,6 +425,33 @@ $(document).delegate('#chart2', 'pageshow', function () {
           legend: { show:true, location: 'e' }
         }
     );
+
+    $('#chart2 input').change(function(){
+
+    });
+
+    $('#chart2 #refresh').click(function(){
+        $('#pieChart1').empty();
+        var data = [
+        ['Heavy Industry', parseInt($('#slider-1').val())],['Retail', parseInt($('#slider-2').val())], ['Light Industry', parseInt($('#slider-3').val())], 
+        ['Out of home', parseInt($('#slider-4').val())],['Commuting', parseInt($('#slider-5').val())], ['Orientation', parseInt($('#slider-6').val())]
+        ];
+
+        dinamicPlot1 = jQuery.jqplot ('pieChart1', [data], 
+            { 
+              seriesDefaults: {
+                // Make this a pie chart.
+                renderer: jQuery.jqplot.PieRenderer, 
+                rendererOptions: {
+                  // Put data labels on the pie slices.
+                  // By default, labels show the percentage of the slice.
+                  showDataLabels: true
+                }
+              }, 
+              legend: { show:true, location: 'e' }
+            }
+        );
+    });
 });
 $(document).delegate('#chart3', 'pageshow', function () {
     var l6 = [11, 9, 5, 12, 14, 8, 7, 9, 6, 11, 9, 3, 4];
