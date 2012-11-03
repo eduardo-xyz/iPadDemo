@@ -17,17 +17,39 @@ body{
 	background-color:#ccc;
 	background-size:100% 100%;
 }
+#magazine video{
+	left: 30px;
+	top: 30px;
+	position: relative;
+}
+#magazine audio{
+	left: 17px;
+    position: relative;
+    top: 98px;
+}
 
 </style>
 </head>
 <body>
 
 <div id="magazine">
-	<div style="background-image:url(pages/01.jpg);"></div>
+	<div style="background-image:url(pages/Steve-Jobs.jpeg);"></div>
 	<div style="background-image:url(pages/02.jpg);"></div>
-	<div style="background-image:url(pages/03.jpg);"></div>
+	<div style="background-image:url(pages/03.jpg);">
+		<video width="320" height="240" controls="controls">
+          <source src="../../img/movie.mp4" type="video/mp4">
+          <!-- <source src="movie.ogg" type="video/ogg"> -->
+          Video element not supported.
+        </video>
+	</div>
 	<div style="background-image:url(pages/04.jpg);"></div>
-	<div style="background-image:url(pages/05.jpg);"></div>
+	<div style="background-image:url(pages/05.jpg);">
+		<audio controls="controls">
+          <source src="../../img/market.wav" type="audio/wav">
+          <source src="../../img/market.mp3" type="audio/mp3">
+          Audio element not supported.
+        </audio>
+	</div>
 	<div style="background-image:url(pages/06.jpg);"></div>
 </div>
 

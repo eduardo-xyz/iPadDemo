@@ -278,7 +278,7 @@ h1 {
 #shelve div.shelveRow{
     width: 100%;
     height: 50%;
-    background: url("../img/wall-bookshelf.png") no-repeat scroll 0 400% transparent;
+    background: url("../img/wall-bookshelf.png") no-repeat scroll 0 430% transparent;
 }
 #shelve div.book{
     position: relative;
@@ -287,10 +287,26 @@ h1 {
     background-position: 0 !important;
 }
 #shelve div.book.b1{
+    width: 113px;
+    height: 135px;
+    background: url("../img/book2.jpg") no-repeat scroll 0 400% transparent;
+    left: 100px;
+    float: left;
+    bottom: 20px;
+}
+#shelve div.book.b2{
+    width: 93px;
+    height: 115px;
+    background: url("../img/book2.jpg") no-repeat scroll 0 400% transparent;
+    left: 180px;
+    float: left;
+}
+#shelve div.book.b3{
     width: 93px;
     height: 115px;
     background: url("../img/book1.jpeg") no-repeat scroll 0 400% transparent;
-    left: 100px;
+    left: 280px;
+    float: left;
 }
 #shelve div.book.b6{
     background: url("../img/book6.jpeg") no-repeat scroll 0 400% transparent;
@@ -298,6 +314,7 @@ h1 {
     left: 250px;
     top: -10px;
     width: 105px;
+    float: left;
 }
 div.book.b1{
     width:800px;

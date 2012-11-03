@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var zoomablePagesIDs = ["zoom", "zoom2"];
+var zoomablePagesIDs = ["zoom", "zoom2", "charts","book"];
 var zoomablePageMeta =  "initial-scale=1, maximum-scale=10.0, minimum-scale=1.0,  user-scalable=1"; 
 var fixedPageMeta =     "initial-scale=1, maximum-scale=1.0, maximum-scale=1.0,  user-scalable=no";
 
@@ -154,6 +154,10 @@ $(function(){
             $.mobile.changePage( url, { transition: "slide"} );
         }
         return false;
+    });
+
+    $("div.closeBook").click(function(){
+        // window.location = "../../index.html#book";
     });
 });
 
@@ -616,70 +620,60 @@ $(document).delegate('#chart4', 'pageshow', function () {
 });
 
 // BOOK
+$(document).delegate('#book', 'pageshow', function () {
+    // $( "#popupBook2 iframe" )
+    //     .attr( "width", 0 )
+    //     .attr( "height", 0 );
+          
+    // $( "#popupBook2" ).on({
+    //     popupbeforeposition: function() {
+    //         var size = scale( 850, 300, 15, 1 ),
+    //             w = size.width,
+    //             h = size.height;
+
+    //         $( "#popupBook2 iframe" )
+    //             .attr( "width", w )
+    //             .attr( "height", h );
+    //     },
+    //     popupafterclose: function() {
+    //         $( "#popupBook2 iframe" )
+    //             .attr( "width", 0 )
+    //             .attr( "height", 0 );    
+    //     }
+    // });
+});
 
 $("#shelve div.book").bind('tap', function(event){
-    var bookTop = '0',
-    bookHeight = '100px',
-    bookWidth = '100px';
     if ($(this).hasClass('b1')) {
-        bookTop = '-160px';
-        bookHeight = '500px',
-        bookWidth = '800px';
-    };
-    if ($(this).hasClass('b6')) {
-        bookTop = '0';
-        bookHeight = '400px', 
-        bookWidth = '600px';  
-    };
-    $(this).css( 'z-index', 1 );
-    $(this).animate({'z-index':'1', 'top':bookTop,'left':'0', 'height':bookHeight, 'width':bookWidth}, function(){
-        // b6
-        // $('div.book.b6 div').show();
-        // $('div.book.b6').turn({
-        //     width: 600,
-        //     height: 400,
-        //     autoCenter: true
-        // });
-        window.location = "books/magazine/index.html";
-        // $.mobile.changePage('book2.html');
-        // $.mobile.changePage('http://www.turnjs.com/');
-        // $.mobile.loadPage('book2.html');
-        // $.mobile.changePage('#bookDemo2');
-    });
-    event.stopPropagation();
-    $(this).addClass('open');
-    $("div.book.open .cover").show();
-    $(window).bind('keydown', function(e){
-        if (e.target && e.target.tagName.toLowerCase()!='input')
-            if (e.keyCode==37)
-                $('div.book.open').turn('previous');
-            else if (e.keyCode==39)
-                $('div.book.open').turn('next');
-    });
-    $('.ui-page-active div.ui-content').bind('tap',function(){
-        var bookTop = '0',
-        bookLeft = '0',
-        bookHeight = '0',
-        bookWidth = '0';
-        if ($('div.book.open').hasClass('b1')) {
-            bookTop = '0';
-            bookLeft = '100px';
-            bookHeight = '115px';
-            bookWidth = '93px';
-        };
-        if ($('div.book.open').hasClass('b6')) {
-            bookTop = '-10px';
-            bookLeft = '250px'; 
-            bookHeight = '125px';
-            bookWidth = '105px';
-        };
-        $('div.book.open').animate({'top':bookTop,'left':bookLeft, 'height':bookHeight, 'width':bookWidth, 'z-index':'0'});
-        $("div.book.open .cover").hide();
-        
-        $(this).unbind('tap');
-        $(window).unbind('keydown');
-    });    
+
+    }; 
 });
+
+function scale( width, height, padding, border ) {
+    var scrWidth = $( window ).width() - 30,
+        scrHeight = $( window ).height() - 30,
+        ifrPadding = 2 * padding,
+        ifrBorder = 2 * border,
+        ifrWidth = width + ifrPadding + ifrBorder,
+        ifrHeight = height + ifrPadding + ifrBorder,
+        h, w;
+
+    if ( ifrWidth < scrWidth && ifrHeight < scrHeight ) {
+        w = ifrWidth;
+        h = ifrHeight;
+    } else if ( ( ifrWidth / scrWidth ) > ( ifrHeight / scrHeight ) ) {
+        w = scrWidth;
+        h = ( scrWidth / ifrWidth ) * ifrHeight;
+    } else {
+        h = scrHeight;
+        w = ( scrHeight / ifrHeight ) * ifrWidth;
+    }
+
+    return {
+        'width': w - ( ifrPadding + ifrBorder ),
+        'height': h - ( ifrPadding + ifrBorder )
+    };
+};
 
 // Security
 var dt = {};
@@ -749,4 +743,67 @@ JSON.stringify = JSON.stringify || function (obj) {
         return (arr ? "[" : "{") + String(json) + (arr ? "]" : "}");
     }
 };
+
+// Database
+var db = {};
+$(document).delegate('#dataBase', 'pageshow', function () {
+    db = window.openDatabase("Database", "1.0", "iPadDemo", 200000);
+    db.transaction(populateDB, errorCB, successCB);
+    $('#save').click(function(){
+        db.transaction(saveDB, errorCB, successCB);
+    });
+    $('#delete').click(function(){
+        db.transaction(deleteDB, errorCB, successCB); 
+    });
+});
+// Populate the database 
+//
+function populateDB(tx) {
+    // tx.executeSql('DROP TABLE IF EXISTS DEMO');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, name, phone)');
+    // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
+    // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+}
+
+function saveDB(tx) {
+    tx.executeSql('INSERT INTO DEMO (id, name, phone) VALUES ('+ $('#id').val() +', "'+ $('#uname').val() +'", "'+ $('#phone').val() +'")');
+    // alert('INSERT INTO DEMO (id, name, phone) VALUES ('+ $('#id').val() +', "'+ $('#uname').val() +'", "'+ $('#phone').val() +'")');
+}
+
+function deleteDB(tx) {
+    tx.executeSql('DELETE FROM DEMO');
+    $("#results div.ui-grid-b").html('<div class="ui-block-a"><strong>Id</strong></div><div class="ui-block-b"><strong>Nombre</strong></div><div class="ui-block-c"><strong>Teléfono</strong></div>');
+}
+
+// Query the database
+//
+function queryDB(tx) {
+    tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
+}
+
+// Query the success callback
+//
+function querySuccess(tx, results) {
+    var len = results.rows.length;
+    $("#error").text("Tabla DEMO: " + len + " filas existntes.");
+    $("#results div.ui-grid-b").html('<div class="ui-block-a"><strong>Id</strong></div><div class="ui-block-b"><strong>Nombre</strong></div><div class="ui-block-c"><strong>Teléfono</strong></div>');
+    for (var i=0; i<len; i++){
+        console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Name =  " + results.rows.item(i).name);
+        $("#results div.ui-grid-b div:last-child").after('<div class="ui-block-a">'+ results.rows.item(i).id +'</div><div class="ui-block-b">'+ results.rows.item(i).name +'</div><div class="ui-block-c">'+ results.rows.item(i).phone +'</div>');
+    }
+}
+
+// Transaction error callback
+//
+function errorCB(err) {
+    $("#error").text("Error procesando el SQL: "+err.code);
+}
+
+// Transaction success callback
+//
+function successCB() {
+    db = window.openDatabase("Database", "1.0", "iPadDemo", 200000);
+    db.transaction(queryDB, errorCB);
+}
+
 

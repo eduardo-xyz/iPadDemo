@@ -21,7 +21,8 @@ under the License.
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="format-detection" content="telephone=no" />
-  <meta id="viewport" name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=10, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <meta id="viewport" name="viewport" content="initial-scale=1, maximum-scale=1">
+  <!-- <meta id="viewport" name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=10, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
   <link rel="stylesheet" type="text/css" href="css/index.css" />
   <link class="include" rel="stylesheet" type="text/css" href="css/jquery.jqplot.min.css" />
   <!-- <link rel="stylesheet" type="text/css" href="css/examples.min.css" />
@@ -77,7 +78,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a href=""data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1434,14 +1435,46 @@ under the License.
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
-  <div data-role="content">   
+  <div data-role="content">
     <div id="shelve">
       <div class="shelveRow">
-        <div class="book b6">
-        </div>
+        <a href="#popupBook6" data-rel="popup">
+          <div class="book b6">
+            <!--  -->
+          </div>
+        </a>
+        <a href="#popupBook3" data-rel="popup">
+          <div class="book b3">
+            <!--  -->
+          </div>
+        </a>
       </div>
       <div class="shelveRow">
-        <div class="book b1">
+        <a href="#popupBook1" data-rel="popup">
+          <div class="book b1">
+            <!--  -->
+          </div>
+        </a>
+        <a href="#popupBook2" data-rel="popup">
+          <div class="book b2">
+            <!--  -->
+          </div>
+        </a>
+        <div data-role="popup" id="popupBook1" data-overlay-theme="a" data-theme="b" data-tolerance="15,15" class="ui-content">
+          <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+          <iframe src="books/magazine_single/index.html" width="600" height="800" seamless></iframe>
+        </div>
+        <div data-role="popup" id="popupBook2" data-overlay-theme="a" data-theme="b" data-tolerance="15,15" class="ui-content">
+          <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+          <iframe src="books/magazine/index.html" width="850" height="650" seamless></iframe>
+        </div>
+        <div data-role="popup" id="popupBook3" data-overlay-theme="a" data-theme="b" data-tolerance="15,15" class="ui-content">
+          <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+          <iframe src="books/interactive/index.html" width="850" height="650" seamless></iframe>
+        </div>
+        <div data-role="popup" id="popupBook6" data-overlay-theme="a" data-theme="b" data-tolerance="15,15" class="ui-content">
+          <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+          <iframe src="books/bible/index.html" width="850" height="650" seamless></iframe>
         </div>
       </div>
     </div>
@@ -1714,8 +1747,26 @@ under the License.
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
-  <div data-role="content">   
-    
+  <div data-role="content">
+    <h2>Ejemplo de base de datos en el dispositivo</h2>   
+    <label for="basic">Id de usuario:</label>
+    <input type="number" name="id" id="id" />
+    <label for="basic">Nombre:</label>
+    <input type="text" name="uname" id="uname" />
+    <label for="basic">Teléfono:</label>
+    <input type="tel" name="phone" id="phone" data-mini="true" />
+    <a href="#" id="save" data-role="button" data-theme="b">Guardar</a>
+    <a href="#" id="delete" data-role="button" data-theme="c">Limpiar tabla</a>
+    <div id="results">
+      <span id="error"></span>
+      <h3>Registros existentes</h3>
+      <div class="ui-grid-b">
+        <div class="ui-block-a"><strong>Id</strong></div>
+        <div class="ui-block-b"><strong>Nombre</strong></div>
+        <div class="ui-block-c"><strong>Teléfono</strong></div>
+
+      </div><!-- /grid-a -->
+    </div>
   </div><!-- /content -->
 </div><!-- /page -->
 
