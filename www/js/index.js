@@ -155,10 +155,6 @@ $(function(){
         }
         return false;
     });
-
-    $("div.closeBook").click(function(){
-        // window.location = "../../index.html#book";
-    });
 });
 
 $( "#popupPanel" ).on({
@@ -620,33 +616,12 @@ $(document).delegate('#chart4', 'pageshow', function () {
 });
 
 // BOOK
-$(document).delegate('#book', 'pageshow', function () {
-    // $( "#popupBook2 iframe" )
-    //     .attr( "width", 0 )
-    //     .attr( "height", 0 );
-          
-    // $( "#popupBook2" ).on({
-    //     popupbeforeposition: function() {
-    //         var size = scale( 850, 300, 15, 1 ),
-    //             w = size.width,
-    //             h = size.height;
-
-    //         $( "#popupBook2 iframe" )
-    //             .attr( "width", w )
-    //             .attr( "height", h );
-    //     },
-    //     popupafterclose: function() {
-    //         $( "#popupBook2 iframe" )
-    //             .attr( "width", 0 )
-    //             .attr( "height", 0 );    
-    //     }
-    // });
-});
 
 $("#shelve div.book").bind('tap', function(event){
-    if ($(this).hasClass('b1')) {
-
-    }; 
+    if(window.innerHeight > window.innerWidth){
+        event.preventDefault();
+        $( "#popupFlip" ).popup( "open" );
+    };
 });
 
 function scale( width, height, padding, border ) {

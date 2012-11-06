@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta id="viewport" name="viewport" content="initial-scale=1, maximum-scale=10, user-scalable=1">
@@ -12,20 +12,27 @@ body{
 #magazine{
 	width:800px;
 	height:600px;
+	overflow: hidden;
 }
 #magazine .turn-page{
 	background-color:#ccc;
 	background-size:100% 100%;
 }
-#magazine video{
-	left: 30px;
-	top: 30px;
-	position: relative;
+#magazine input{
+	left: 36px;
+    position: relative;
+    top: 66px;
+}
+#magazine iframe{
+	left: 37px;
+    position: relative;
+    top: 85px;
 }
 #magazine audio{
 	left: 17px;
     position: relative;
-    top: 98px;
+    top: 91px;
+    width: 370px;
 }
 
 </style>
@@ -34,13 +41,11 @@ body{
 
 <div id="magazine">
 	<div style="background-image:url(pages/Steve-Jobs.jpeg);"></div>
-	<div style="background-image:url(pages/02.jpg);"></div>
+	<div style="background-image:url(pages/02.jpg);">
+		<input type="text"/>
+        <iframe width="319" height="205" src="http://www.youtube.com/embed/uFUSVaqSaxQ?rel=0" frameborder="0" allowfullscreen></iframe>
+	</div>
 	<div style="background-image:url(pages/03.jpg);">
-		<video width="320" height="240" controls="controls">
-          <source src="../../img/movie.mp4" type="video/mp4">
-          <!-- <source src="movie.ogg" type="video/ogg"> -->
-          Video element not supported.
-        </video>
 	</div>
 	<div style="background-image:url(pages/04.jpg);"></div>
 	<div style="background-image:url(pages/05.jpg);">
@@ -50,6 +55,7 @@ body{
           Audio element not supported.
         </audio>
 	</div>
+	<button></button>
 	<div style="background-image:url(pages/06.jpg);"></div>
 </div>
 

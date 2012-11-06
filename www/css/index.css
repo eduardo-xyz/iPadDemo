@@ -152,6 +152,13 @@ h1 {
     height: 300px;
     width: 100%;
 }
+#home div.ui-grid-a div.ui-block-a{
+    width: 35%;
+}
+
+#home div.ui-grid-a div.ui-block-b{
+    width: 65%;
+}
 
 #tapDemo{
     width: 100%;
@@ -262,13 +269,16 @@ h1 {
 }
 
 #charts div.chartPic{
-    position: relative;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+}
+#charts div.chartPic img{
+    height: 200px;
 }
 
 #book div.ui-content{
-    height: 800px;
+    /*height: 800px;*/
 }
 #shelve{
     width: 852px;
@@ -359,6 +369,10 @@ div.book.b6 div{
 
 /*Zoom*/
 
+#zoom div p{
+    text-align: justify;
+}
+
 #zoom div p.z1{
     font-size: x-large;
 }
@@ -379,6 +393,9 @@ div.book.b6 div{
 }
 #zoom img.small{
     width: 30px;
+}
+#zoom .ui-block-b{
+    padding-left: 10px;
 }
 #zoom2 img{
     height: 100%;
