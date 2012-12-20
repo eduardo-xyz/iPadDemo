@@ -33,7 +33,7 @@ $('[data-role=page]').live('pagebeforeshow', function() {
 });
 
 $(window).resize(function() { 
-    $(".ui-header").width($(window).width());
+    // $(".ui-header").width($(window).width());
 });
 
 var app = {
@@ -155,6 +155,19 @@ $(function(){
         }
         return false;
     });
+
+    //if there's a data-rel=back attr, go back in history
+    // if( $link.is( ":jqmData(rel='back')" ) ) {
+    //     window.history.back();
+    //     return false;
+    // }
+    $('a.backMenu').on('touchstart',function(){
+        $(this).addClass('ui-btn-down-b');
+        setTimeout(function() {
+            $('a.backMenu').removeClass('ui-btn-down-b');
+            $('a.backMenu').addClass('ui-btn-down-a');
+        }, 1000);
+    });
 });
 
 $( "#popupPanel" ).on({
@@ -193,14 +206,26 @@ $("#swipeDemo").bind('swipedown', function(){
     $this.addClass('swipe');
 });
 
+var swipePosition = "left";
+
 $("#swipeHDemo").bind('swipeleft', function(){
-    $this = $("#swipeHDemo div");
-    $this.css({left:"50%"}).animate({"left":"0%"}, "slow");
+    if (swipePosition == "right") {
+        $this = $("#swipeHDemo div");
+        $this.stop(true,true).css({left:"50%"}).animate({"left":"0%"}, "slow", function(){
+            swipePosition = "left";
+            $this.stop(true, true);
+        });
+    };
 });
 
 $("#swipeHDemo").bind('swiperight', function(){
-    $this = $("#swipeHDemo div");
-    $this.css({left:"0%"}).animate({"left":"50%"}, "slow");
+    if (swipePosition == "left") {
+        $this = $("#swipeHDemo div");
+        $this.stop(true,true).css({left:"0%"}).animate({"left":"50%"}, "slow", function(){
+            swipePosition = "right";
+            $this.stop(true, true);
+        });
+    };
 });
 
 $(document).delegate('#gestures', 'pageshow', function () {
@@ -209,6 +234,41 @@ $(document).delegate('#gestures', 'pageshow', function () {
     }else{
         $("#horientation").text("Landscape");
     };
+
+    var position = 0;
+        
+    function next() {
+        position -= 25;
+        if (position <= -100)
+            position = 0;
+        update();
+    }
+
+    function prev() {
+        position += 25;
+        if (position > 0)
+            position = 0;
+        update();
+    }
+
+    function update() {
+        var pan = document.getElementById("pan");
+        pan.style.OTransform = "translateX(" + position + "%)";
+        pan.style.MozTransform = "translateX(" + position + "%)";
+        pan.style.WebkitTransform = "translateX(" + position + "%)";
+    }
+
+    $(function() {
+        $(window).bind("swipeleft", next);
+        $(window).bind("swiperight", prev);
+        $(window).bind("keydown", function(event) {
+            if (event.which==37)
+                prev();
+            else if (event.which==39)
+                next();
+        });
+        $("img").bind("dragstart", function(ev) { ev.preventDefault(); });
+    });
 });
 
 $(document).bind('orientationchange', function(e){
@@ -454,74 +514,22 @@ $(document).delegate('#chart2', 'pageshow', function () {
     });
 });
 $(document).delegate('#chart3', 'pageshow', function () {
-    var l6 = [11, 9, 5, 12, 14, 8, 7, 9, 6, 11, 9, 3, 4];
-    var l7 = [4, 8, 5, 3, 6, 5, 3, 2, 6, 7, 4, 3, 2];
-    var l8 = [12, 6, 13, 11, 2, 3, 4, 2, 1, 5, 7, 4, 8];
- 
-    var ticks = [[1,'Dec 10'], [2,'Jan 11'], [3,'Feb 11'], [4,'Mar 11'], [5,'Apr 11'], [6,'May 11'], [7,'Jun 11'], [8,'Jul 11'], [9,'Aug 11'], [10,'Sep 11'], [11,'Oct 11'], [12,'Nov 11'], [13,'Dec 11']]; 
- 
+    var arr = [[11, 123, 1236, "Acura"], [45, 92, 1067, "Alfa Romeo"], 
+    [24, 104, 1176, "AM General"], [50, 23, 610, "Aston Martin Lagonda"], 
+    [18, 17, 539, "Audi"], [7, 89, 864, "BMW"], [2, 13, 1026, "Bugatti"]];
      
-    plot2 = $.jqplot('areaChart2',[l6, l7, l8],{
-       stackSeries: true,
-       showMarker: false,
-       highlighter: {
-        show: true,
-        showTooltip: false
-       },
-       seriesDefaults: {
-           fill: true,
-       },
-       series: [
-        {label: 'Beans'},
-        {label: 'Oranges'},
-        {label: 'Crackers'}
-       ],
-       legend: {
-        show: true,
-        placement: 'outsideGrid'
-       },
-       grid: {
-        drawBorder: false,
-        shadow: false
-       },
-       axes: {
-           xaxis: {
-              ticks: ticks,
-              tickRenderer: $.jqplot.CanvasAxisTickRenderer,
-              tickOptions: {
-                angle: -90
-              },
-              drawMajorGridlines: false
-          }          
+    var plot2 = $.jqplot('bublesChart',[arr],{
+        title: 'Transparent Bubbles',
+        seriesDefaults:{
+            renderer: $.jqplot.BubbleRenderer,
+            rendererOptions: {
+                bubbleAlpha: 0.6,
+                highlightAlpha: 0.8
+            },
+            shadow: true,
+            shadowAlpha: 0.05
         }
     });
-     
-    // capture the highlighters highlight event and show a custom tooltip.
-    $('#areaChart2').bind('jqplotHighlighterHighlight',
-        function (ev, seriesIndex, pointIndex, data, plot) {
-            // create some content for the tooltip.  Here we want the label of the tick,
-            // which is not supplied to the highlighters standard tooltip.
-            var content = plot.series[seriesIndex].label + ', ' + plot.series[seriesIndex]._xaxis.ticks[pointIndex][1] + ', ' + data[1];
-            // get a handle on our custom tooltip element, which was previously created
-            // and styled.  Be sure it is initiallly hidden!
-            var elem = $('#customTooltipDiv');
-            elem.html(content);
-            // Figure out where to position the tooltip.
-            var h = elem.outerHeight();
-            var w = elem.outerWidth();
-            var left = ev.pageX - w - 10;
-            var top = ev.pageY - h - 10;
-            // now stop any currently running animation, position the tooltip, and fade in.
-            elem.stop(true, true).css({left:left, top:top}).fadeIn(200);
-        }
-    );
-     
-    // Hide the tooltip when unhighliting.
-    $('#areaChart2').bind('jqplotHighlighterUnhighlight',
-        function (ev) {
-            $('#customTooltipDiv').fadeOut(300);
-        }
-    );
 });
 $(document).delegate('#chart4', 'pageshow', function () {
     var s1 = [[2002, 112000], [2003, 122000], [2004, 104000], [2005, 99000], [2006, 121000],

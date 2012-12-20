@@ -18,11 +18,6 @@ body{
 	background-color:#ccc;
 	background-size:100% 100%;
 }
-#magazine input{
-	left: 36px;
-    position: relative;
-    top: 66px;
-}
 #magazine iframe{
 	left: 37px;
     position: relative;
@@ -34,6 +29,13 @@ body{
     top: 91px;
     width: 370px;
 }
+#magazine div.controls{
+	background-color: #FFFFFF;
+}
+#magazine div.controls div{
+	padding-left: 10px;
+    padding-top: 10px;
+}
 
 </style>
 </head>
@@ -41,8 +43,29 @@ body{
 
 <div id="magazine">
 	<div style="background-image:url(pages/Steve-Jobs.jpeg);"></div>
-	<div style="background-image:url(pages/02.jpg);">
-		<input type="text"/>
+	<div class="controls"><!-- style="background-image:url(pages/02.jpg);" -->
+		<div>
+			<label for="name">Texto normal:</label>
+			<input type="text" name="name" id="name" value=""  />
+			<br>
+			<label for="textarea">Área de texto:</label>
+			<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+			<br>
+			<label for="slider2">Combo:</label>
+			<select name="slider2" id="slider2" data-role="slider">
+				<option value="off">Off</option>
+				<option value="on">On</option>
+			</select>
+			<br>
+			<!-- <video width="320" height="240" controls="controls">
+	        	<source src="../../movie.mp4" type="video/mp4">
+	        	<source src="../../movie.ogg" type="video/ogg">
+	        	<source src="../../movie.avi" type="video/avi">
+	        	<source src="../../movie.m4v" type="video/m4v">
+	        	Your browser does not support the video tag.
+	        </video> -->
+		</div>
+
         <iframe width="319" height="205" src="http://www.youtube.com/embed/uFUSVaqSaxQ?rel=0" frameborder="0" allowfullscreen></iframe>
 	</div>
 	<div style="background-image:url(pages/03.jpg);">
@@ -55,7 +78,6 @@ body{
           Audio element not supported.
         </audio>
 	</div>
-	<button></button>
 	<div style="background-image:url(pages/06.jpg);"></div>
 </div>
 

@@ -52,6 +52,7 @@ under the License.
   <script type="text/javascript" src="js/jqplot.pointLabels.min.js"></script>
   <script type="text/javascript" src="js/jqplot.highlighter.min.js"></script>
   <script type="text/javascript" src="js/jqplot.cursor.min.js"></script>
+  <script type="text/javascript" src="js/jqplot.bubbleRenderer.min.js"></script>
   <title>iPad Demo</title>
 </head>
 <body>
@@ -78,15 +79,13 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a href="" data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a href="" data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">
-    <div class="ui-grid-a">
-      <div class="ui-block-a">
-        <p>Seleccione una opción para ver una demostración</p>    
-        <ul data-role="listview" data-inset="true">
+    <p>Seleccione una opción para ver una demostración</p>    
+        <!-- <ul data-role="listview" data-inset="true">
           <li><a href="#controls">Controles</a></li>
           <li><a href="#dialogs">Diálogos</a></li>
           <li><a href="#menu">Menús</a></li>
@@ -101,13 +100,66 @@ under the License.
           <li><a href="#security">Seguridad</a></li>
           <li><a href="#internet">Internet</a></li>
           <li><a href="#dataBase">Base de datos</a></li>
-        </ul>
-      </div>
-      <div class="ui-block-b">
-        <iframe src="http://www.brlresearch.com" width="100%" height="615px"></iframe>
-        <!-- <img src="img/BRL.png"/> -->
-      </div>
-    </div><!-- /grid-a -->
+        </ul> -->
+    <div class="ui-grid-b">
+      <div class="ui-block-a"><a href="#controls" data-role="button" data-transition="pop">
+        <img src="img/menu/Controles.png"><br>
+        Controles
+      </a></div>
+      <div class="ui-block-b"><a href="#dialogs" data-role="button" data-transition="pop">
+        <img src="img/menu/Dialogos.png"><br>
+        Diálogos
+      </a></div>
+      <div class="ui-block-c"><a href="#menu" data-role="button" data-transition="pop">
+        <img src="img/menu/Menu.png"><br>
+        Menús
+      </a></div>
+      <div class="ui-block-a"><a href="#gestures" data-role="button" data-transition="pop">
+        <img src="img/menu/Gestos.png"><br>
+        Gestos
+      </a></div>
+      <div class="ui-block-b"><a href="#transitions" data-role="button" data-transition="pop">
+        <img src="img/menu/Transiciones.png"><br>
+        Transiciones
+      </a></div>
+      <div class="ui-block-c"><a href="#movility" data-role="button" data-transition="pop">
+        <img src="img/menu/Movibles.png"><br>
+        Móvibles
+      </a></div>
+      <div class="ui-block-a"><a href="#multimedia" data-role="button" data-transition="pop">
+        <img src="img/menu/Multimedia.png"><br>
+        Multimedia
+      </a></div>
+      <div class="ui-block-b"><a href="#maps" data-role="button" data-transition="pop">
+        <img src="img/menu/Mapas.png"><br>
+        Mapas
+      </a></div>
+      <div class="ui-block-c"><a href="#charts" data-role="button" data-transition="pop">
+        <img src="img/menu/Graficas.png"><br>
+        Gráficas
+      </a></div>
+      <div class="ui-block-a"><a href="#book" data-role="button" data-transition="pop">
+        <img src="img/menu/Libro.png"><br>
+        Libro
+      </a></div>
+      <div class="ui-block-b"><a href="#zoom" data-role="button" data-transition="pop">
+        <img src="img/menu/Zoom.png"><br>
+        Zoom
+      </a></div>
+      <div class="ui-block-c"><a href="#security" data-role="button" data-transition="pop">
+        <img src="img/menu/Seguridad.png"><br>
+        Seguridad
+      </a></div>
+      <div class="ui-block-a"><a href="#internet" data-role="button" data-transition="pop">
+        <img src="img/menu/Internet.png"><br>
+        Internet
+      </a></div>
+      <div class="ui-block-b"><a href="#dataBase" data-role="button" data-transition="pop">
+        <img src="img/menu/BaseDeDatos.png"><br>
+        Base de datos
+      </a></div>
+    </div><!-- /grid-b -->
+    <img class="brl" src="img/BRL.png"/>
   </div><!-- /content -->
 </div><!-- /page -->
 
@@ -134,7 +186,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a href="" data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a href="" data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -234,33 +286,33 @@ under the License.
       <div class="ui-radio"><input type="radio" checked="checked" value="choice-1" id="radio-choice-1" name="radio-choice-1"><label for="radio-choice-1" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-radio-on ui-corner-top"><span class="ui-btn-inner ui-corner-top"><span class="ui-btn-text">Cat</span></span></label></div>
 
 
-      <div class="ui-radio"><input type="radio" value="choice-2" id="radio-choice-2" name="radio-choice-1"><label for="radio-choice-2" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-radio-off"><span class="ui-btn-inner"><span class="ui-btn-text">Dog</span></span></label></div>
+      <div class="ui-radio"><input type="radio" value="choice-2" id="radio-choice-2" name="radio-choice-1"><label for="radio-choice-2" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-radio-off"><span class="ui-btn-inner"><span class="ui-btn-text">Perro</span></span></label></div>
 
 
       <div class="ui-radio"><input type="radio" value="choice-3" id="radio-choice-3" name="radio-choice-1"><label for="radio-choice-3" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-radio-off"><span class="ui-btn-inner"><span class="ui-btn-text">Hamster</span></span></label></div>
 
 
-      <div class="ui-radio"><input type="radio" value="choice-4" id="radio-choice-4" name="radio-choice-1"><label for="radio-choice-4" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-radio-off ui-corner-bottom ui-controlgroup-last"><span class="ui-btn-inner ui-corner-bottom ui-controlgroup-last"><span class="ui-btn-text">Lizard</span></span></label></div>
+      <div class="ui-radio"><input type="radio" value="choice-4" id="radio-choice-4" name="radio-choice-1"><label for="radio-choice-4" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-radio-off ui-corner-bottom ui-controlgroup-last"><span class="ui-btn-inner ui-corner-bottom ui-controlgroup-last"><span class="ui-btn-text">Lagartija</span></span></label></div>
 
       </div></fieldset></div>
 
       <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><fieldset data-type="horizontal" data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal"><div class="ui-controlgroup-label" role="heading">Selección Única (Botón):</div><div class="ui-controlgroup-controls">
 
-      <div class="ui-radio"><input type="radio" checked="checked" value="on" id="radio-choice-c" name="radio-choice-b"><label for="radio-choice-c" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-radio-on ui-btn-active ui-corner-left"><span class="ui-btn-text">List</span></label></div>
+      <div class="ui-radio"><input type="radio" checked="checked" value="on" id="radio-choice-c" name="radio-choice-b"><label for="radio-choice-c" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-radio-on ui-btn-active ui-corner-left"><span class="ui-btn-text">Lista</span></label></div>
 
-      <div class="ui-radio"><input type="radio" value="off" id="radio-choice-d" name="radio-choice-b"><label for="radio-choice-d" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-radio-off"><span class="ui-btn-text">Grid</span></label></div>
+      <div class="ui-radio"><input type="radio" value="off" id="radio-choice-d" name="radio-choice-b"><label for="radio-choice-d" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-radio-off"><span class="ui-btn-text">Tabla</span></label></div>
 
-      <div class="ui-radio"><input type="radio" value="other" id="radio-choice-e" name="radio-choice-b"><label for="radio-choice-e" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-radio-off ui-corner-right ui-controlgroup-last"><span class="ui-btn-text">Gallery</span></label></div>
+      <div class="ui-radio"><input type="radio" value="other" id="radio-choice-e" name="radio-choice-b"><label for="radio-choice-e" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-radio-off ui-corner-right ui-controlgroup-last"><span class="ui-btn-text">Galería</span></label></div>
 
       </div></fieldset></div>
 
       <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
         <label for="select-choice-0" class="select">Selección por Lista Corta:</label>
         <select name="select-choice-0" id="select-choice-0">
-           <option value="standard">Standard: 7 day</option>
-           <option value="rush">Rush: 3 days</option>
-           <option value="express">Express: next day</option>
-           <option value="overnight">Overnight</option>
+           <option value="standard">Estandar: 7 días</option>
+           <option value="rush">Rápida: 3 días</option>
+           <option value="express">Exprés: siguiente día</option>
+           <option value="overnight">Nocturna</option>
         </select>
       </div>
 
@@ -325,10 +377,10 @@ under the License.
         <div class="ui-select">
           <select data-native-menu="false" id="select-choice-a" name="select-choice-a" tabindex="-1">
             <option data-placeholder="true">Ejemplo de menú personalizado</option>
-            <option value="standard">Standard: 7 day</option>
-            <option value="rush">Rush: 3 days</option>
-            <option value="express">Express: next day</option>
-            <option value="overnight">Overnight</option>
+            <option value="standard">Estandar: 7 días</option>
+           <option value="rush">Rápida: 3 días</option>
+           <option value="express">Exprés: siguiente día</option>
+           <option value="overnight">Nocturna</option>
           </select>
           <div style="display: none;"><!-- placeholder --></div>
         </div>
@@ -382,18 +434,18 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">
     <h2>Diálogos de pantalla completa</h2>
-    <a href="dialog.html" data-role="button" data-rel="dialog" data-transition="pop">Open normal dialog</a>
-    <a href="dialog.html" data-role="button" data-rel="dialog" data-transition="slidedown">Open slidedown dialog</a>
-    <a href="dialog.html" data-role="button" data-rel="dialog" data-transition="flip">Open flip dialog</a>
-    <a href="dialog-alt.html" data-role="button" data-rel="dialog" data-transition="pop">Open an alternate color scheme dialog</a>
-    <a href="dialog-overlay.html" data-role="button" data-rel="dialog" data-transition="pop">Custom overlay swatch</a>
-    <a href="dialog-buttons.html" data-role="button" data-rel="dialog" data-transition="slidedown">Share photos...</a>
+    <a href="#simpleDialog" data-role="button" data-rel="dialog" data-transition="pop">Abre diálogo normal</a>
+    <a href="#simpleDialog" data-role="button" data-rel="dialog" data-transition="slidedown">Abre diálogo tipo "slidedown"</a>
+    <a href="#simpleDialog" data-role="button" data-rel="dialog" data-transition="flip">Abre diélogo tipo "flip"</a>
+    <a href="#dialog-alt" data-role="button" data-rel="dialog" data-transition="pop">Abre diálogo con colores personalizados</a>
+    <a href="#dialog-overlay" data-role="button" data-rel="dialog" data-transition="pop">Fondo personalizado</a>
+    <a href="#dialog-buttons" data-role="button" data-rel="dialog" data-transition="slidedown">Compartir foto...</a>
   </div><!-- /content -->
   <div data-role="footer" id="dialogsNav" data-position="fixed">    
     <div data-role="navbar">
@@ -430,7 +482,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -453,9 +505,9 @@ under the License.
     <div data-role="popup" id="popupMenu" data-theme="a">
         <ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
           <li data-role="divider" data-theme="a">Popup API</li>
-          <li><a href="options.html">Options</a></li>
-          <li><a href="methods.html">Methods</a></li>
-          <li><a href="events.html">Events</a></li>
+          <li><a href="options.html">Opciones</a></li>
+          <li><a href="methods.html">Métodos</a></li>
+          <li><a href="events.html">Eventos</a></li>
         </ul>
     </div>
 
@@ -463,39 +515,39 @@ under the License.
     <div data-role="popup" id="popupNested" data-theme="none">
       <div data-role="collapsible-set" data-theme="b" data-content-theme="c" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
         <div data-role="collapsible" data-inset="false">
-          <h2>Farm animals</h2>
+          <h2>Animales de granja</h2>
           <ul data-role="listview">
-            <li><a href="dialog.html" data-rel="dialog">Chicken</a></li>
-            <li><a href="dialog.html" data-rel="dialog">Cow</a></li>
-            <li><a href="dialog.html" data-rel="dialog">Duck</a></li>
-            <li><a href="dialog.html" data-rel="dialog">Sheep</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Gallina</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Vaca</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Pato</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Obeja</a></li>
           </ul>
         </div><!-- /collapsible -->
         <div data-role="collapsible" data-inset="false">
-          <h2>Pets</h2>
+          <h2>Mascotas</h2>
           <ul data-role="listview">
-            <li><a href="dialog.html" data-rel="dialog">Cat</a></li>
-            <li><a href="dialog.html" data-rel="dialog">Dog</a></li>
-            <li><a href="dialog.html" data-rel="dialog">Iguana</a></li>
-            <li><a href="dialog.html" data-rel="dialog">Mouse</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Gato</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Perro</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Iguana</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Ratón</a></li>
           </ul>
         </div><!-- /collapsible -->
         <div data-role="collapsible" data-inset="false">
-          <h2>Ocean Creatures</h2>
+          <h2>Criaturas del mar</h2>
           <ul data-role="listview">
-            <li><a href="dialog.html" data-rel="dialog">Fish</a></li>
-            <li><a href="dialog.html" data-rel="dialog">Octopus</a></li>
-            <li><a href="dialog.html" data-rel="dialog">Shark</a></li>
-            <li><a href="dialog.html" data-rel="dialog">Starfish</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Pez</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Pulpo</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Tortuga</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Estrella de mar</a></li>
           </ul>
         </div><!-- /collapsible -->
         <div data-role="collapsible" data-inset="false">
-          <h2>Wild Animals</h2>
+          <h2>Animales salvajes</h2>
           <ul data-role="listview">
-            <li><a href="dialog.html" data-rel="dialog">Lion</a></li>
-            <li><a href="dialog.html" data-rel="dialog">Monkey</a></li>
-            <li><a href="dialog.html" data-rel="dialog">Tiger</a></li>
-            <li><a href="dialog.html" data-rel="dialog">Zebra</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Leon</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">mono</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Tigre</a></li>
+            <li><a href="#simpleDialog" data-rel="dialog">Zebra</a></li>
           </ul>
         </div><!-- /collapsible -->
       </div><!-- /collapsible set -->
@@ -582,7 +634,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -638,7 +690,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -677,8 +729,108 @@ under the License.
   </div><!-- /footer -->
 </div><!-- /page -->
 
+<div id="simpleDialog" data-role="dialog">
+  <div data-role="header" data-theme="d">
+    <h1>Diálogo</h1>
+  </div>
+  <div data-role="content" data-theme="c">
+    <h1>Borrar item?</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus euismod vehicula interdum. <code>sem vitae ullamcorper</code> Praesent ac felis lectus. Nunc interdum, sem vitae ullamcorper imperdiet.</p>
+    <a data-role="button" data-rel="back" data-theme="b">Suena bien!</a>       
+    <a data-role="button" data-rel="back" data-theme="c">Cancel</a>    
+  </div>
+</div>
+<div id="dialog-alt" data-role="dialog">
+  <div data-role="header" data-theme="e">
+    <h1>Diálogo</h1>
+  </div>
+  <div data-role="content" data-theme="e">
+    <h1>Ejemplo con colores!</h1>
+    <p>Este es un ejemplo de lo personalizado que puede estar un control o pantalla en una aplicación. Incluso hasta más!</p>
+    <a data-role="button" data-rel="back" data-theme="a">Aceptar.</a>       
+    <a data-role="button" data-rel="back" data-theme="c">Cancelar.</a>    
+  </div>
+</div>
+<div id="dialog-buttons" data-role="dialog" class="dialog-actionsheet">
+  <div data-role="content" data-theme="a">
+    <h3>Compartir fotos</h3>
+    <a href="#page-transitions-dialog" data-role="button" data-rel="dialog" data-transition="slidedown" data-theme="b">Email</a>     
+    <a href="#page-transitions-dialog" data-role="button" data-rel="dialog" data-transition="slidedown" data-theme="b">Subir a flickr</a>       
+    <a href="#page-transitions-dialog" data-role="button" data-rel="dialog" data-transition="slidedown" data-theme="b">Compartir en Facebook</a>      
+    <a href="#page-transitions-dialog" data-role="button" data-rel="dialog" data-transition="slidedown" data-theme="b">Tweet foto</a>       
+          
+    <a data-role="button" data-rel="back" data-theme="a">Cancelar</a>    
+  </div>
+</div>
+<div id="dialog-overlay" data-role="dialog" data-overlay-theme="e">
+  <div data-role="header" data-theme="b">
+    <h1>Dialogo</h1>
+  </div>
+  <div data-role="content" data-theme="d">
+    <h1>Custom overlay</h1>
+    <p>This dialog adds <code>data-overlay-theme="e"</code> to the page container to set the overlay swatch color.</p>
+    <a href="#" data-role="button" data-rel="back" data-theme="a" data-inline="true">I like it</a>       
+  </div>
+</div>
+<div id="page-transitions-dialog" data-role="dialog" ><!-- dialog-->
+  <div data-role="header" data-theme="e">
+    <h1>Dialog</h1>
+  </div><!-- /header -->
+  <div data-role="content" data-theme="e">
+    <p>That was an animated page transition effect to a dialog that we added with a <code>data-transition</code> attribute on the link.</p>
+    <p>Since it uses CSS animations, this should be hardware accelerated on many devices. To see transitions, 3D transform support is required so if you only saw a fade transition that's the reason.</p>
+    <a href="#" data-role="button" data-theme="b" data-rel="back">Take me back</a>   
+  </div>
+</div>
+<div data-role="page" id="page-transitions-page" data-dom-cache="true"><!-- page-->
+  <div data-role="header" data-theme="a">
+    <h1>Page</h1>
+  </div><!-- /header -->
 
+  <div data-role="content" data-theme="d">
+    <p>That was an animated page transition effect to a page that we added with a <code>data-transition</code> attribute on the link. This uses a different background theme swatch to see how that looks with the transitions.</p>
+    <p>Since it uses CSS animations, this should be hardware accelerated on many devices. To see transitions, 3D transform support is required so if you only saw a fade transition that's the reason.</p>
+      
+    <form action="#" method="get">
+      <h2>Here's a few form elements</h2>
 
+      <p>These are here to see if this slows down rendering.</p>
+
+      <div data-role="fieldcontain">
+           <label for="name">Text Input:</label>
+           <input type="text" name="name" id="name" value=""  />
+      </div>
+
+      <div data-role="fieldcontain">
+      <label for="textarea">Textarea:</label>
+      <textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+      </div>
+
+      <div data-role="fieldcontain">
+        <label for="slider2">Flip switch:</label>
+        <select name="slider2" id="slider2" data-role="slider">
+          <option value="off">Off</option>
+          <option value="on">On</option>
+        </select>
+      </div>
+
+      <div data-role="fieldcontain">
+        <label for="slider">Slider:</label>
+        <input type="range" name="slider" id="slider" value="0" min="0" max="100" data-highlight="true" />
+      </div>
+          
+    </form>
+    
+    <a href="docs-transitions.html" data-role="button" data-theme="b" data-rel="back" data-inline="true">Take me back</a>   
+  </div>
+  
+  <div data-role="footer" data-theme="d">
+    <div style="margin:5px 10px;"><!-- To add a bit of spacing -->
+    <label for="search" class="ui-hidden-accessible">Search:</label>
+        <input type="search" name="password" id="search" placeholder="Search..." value="" />
+    </div>
+  </div><!-- /footer -->
+</div>
 
 
 
@@ -705,7 +857,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -764,14 +916,14 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
     <h2>Tap</h2>
     <div id="tapDemo">
-      <span>Toque aquí!</span>
+      <span>Seleccione!</span>
     </div>
     <h2>Tap sostenido </h2>
     <div id="tapHoldDemo">
@@ -784,11 +936,19 @@ under the License.
       </div>
     </div>
     <h2>Swipe horizontal</h2>
-    <div id="swipeHDemo">
-      <div>
-        <!--  -->
+    <div class="clip">
+      <div id="pan" class="pan">
+        <img src="img/gallery/1.jpg" />
+        <img src="img/gallery/2.jpg" />
+        <img src="img/gallery/3.jpg" />
+        <img src="img/gallery/4.jpg" />
       </div>
     </div>
+    <!-- <div id="swipeHDemo">
+      <div>
+
+      </div>
+    </div> -->
     <h2>Orientación</h2>
     <h3 id="horientation">?????????</h3>
   </div><!-- /content -->
@@ -817,7 +977,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -825,53 +985,53 @@ under the License.
     <table margin="0">
       <tr>
         <th><h3>fade</h3></th>
-        <td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="fade" data-inline="true">Diálogo</a></td>
-        <td><a href="page-transitions-page.html" data-role="button" data-transition="fade" data-inline="true">Página</a></td>
+        <td><a href="#page-transitions-dialog" data-role="button" data-rel="dialog" data-transition="fade" data-inline="true">Diálogo</a></td>
+        <td><a href="#page-transitions-page" data-role="button" data-transition="fade" data-inline="true">Página</a></td>
       </tr>
       <tr>
         <th><h3>pop</h3></th>
-        <td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="pop" data-inline="true">Diálogo</a></td>
-        <td><a href="page-transitions-page.html" data-role="button" data-transition="pop" data-inline="true">Página</a></td>
+        <td><a href="#page-transitions-dialog" data-role="button" data-rel="dialog" data-transition="pop" data-inline="true">Diálogo</a></td>
+        <td><a href="#page-transitions-page" data-role="button" data-transition="pop" data-inline="true">Página</a></td>
       </tr>
       <tr>
         <th><h3>flip</h3></th>
-        <td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="flip" data-inline="true">Diálogo</a></td>
-        <td><a href="page-transitions-page.html" data-role="button" data-transition="flip" data-inline="true">Página</a></td>
+        <td><a href="#page-transitions-dialog" data-role="button" data-rel="dialog" data-transition="flip" data-inline="true">Diálogo</a></td>
+        <td><a href="#page-transitions-page" data-role="button" data-transition="flip" data-inline="true">Página</a></td>
       </tr>
       <tr>
         <th><h3>turn</h3></th>
-        <td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="turn" data-inline="true">Diálogo</a></td>
-        <td><a href="page-transitions-page.html" data-role="button" data-transition="turn" data-inline="true">Página</a></td>
+        <td><a href="#page-transitions-dialog" data-role="button" data-rel="dialog" data-transition="turn" data-inline="true">Diálogo</a></td>
+        <td><a href="#page-transitions-page" data-role="button" data-transition="turn" data-inline="true">Página</a></td>
       </tr>
       <tr>
         <th><h3>flow</h3></th>
-        <td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="flow" data-inline="true">Diálogo</a></td>
-        <td><a href="page-transitions-page.html" data-role="button" data-transition="flow" data-inline="true">Página</a></td>
+        <td><a href="#page-transitions-dialog" data-role="button" data-rel="dialog" data-transition="flow" data-inline="true">Diálogo</a></td>
+        <td><a href="#page-transitions-page" data-role="button" data-transition="flow" data-inline="true">Página</a></td>
       </tr>
       <tr>
         <th><h3>slidefade</h3></th>
-        <td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="slidefade" data-inline="true">Diálogo</a></td>
-        <td><a href="page-transitions-page.html" data-role="button" data-transition="slidefade" data-inline="true">Página</a></td>
+        <td><a href="#page-transitions-dialog" data-role="button" data-rel="dialog" data-transition="slidefade" data-inline="true">Diálogo</a></td>
+        <td><a href="#page-transitions-page" data-role="button" data-transition="slidefade" data-inline="true">Página</a></td>
       </tr>
       <tr>
         <th><h3>slide</h3></th>
-        <td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="slide" data-inline="true">Diálogo</a></td>
-        <td><a href="page-transitions-page.html" data-role="button" data-transition="slide" data-inline="true">Página</a></td>
+        <td><a href="#page-transitions-dialog" data-role="button" data-rel="dialog" data-transition="slide" data-inline="true">Diálogo</a></td>
+        <td><a href="#page-transitions-page" data-role="button" data-transition="slide" data-inline="true">Página</a></td>
       </tr>
       <tr>
         <th><h3>slideup</h3></th>
-        <td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="slideup" data-inline="true">Diálogo</a></td>
-        <td><a href="page-transitions-page.html" data-role="button" data-transition="slideup" data-inline="true">Página</a></td>
+        <td><a href="#page-transitions-dialog" data-role="button" data-rel="dialog" data-transition="slideup" data-inline="true">Diálogo</a></td>
+        <td><a href="#page-transitions-page" data-role="button" data-transition="slideup" data-inline="true">Página</a></td>
       </tr>
       <tr>
         <th><h3>slidedown</h3></th>
-        <td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="slidedown" data-inline="true">Diálogo</a></td>
-        <td><a href="page-transitions-page.html" data-role="button" data-transition="slidedown" data-inline="true">Página</a></td>
+        <td><a href="#page-transitions-dialog" data-role="button" data-rel="dialog" data-transition="slidedown" data-inline="true">Diálogo</a></td>
+        <td><a href="#page-transitions-page" data-role="button" data-transition="slidedown" data-inline="true">Página</a></td>
       </tr>
       <tr>
         <th><h3>none</h3></th>
-        <td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="none" data-inline="true">Diálogo</a></td>
-        <td><a href="page-transitions-page.html" data-role="button" data-transition="none" data-inline="true">Página</a></td>
+        <td><a href="#page-transitions-dialog" data-role="button" data-rel="dialog" data-transition="none" data-inline="true">Diálogo</a></td>
+        <td><a href="#page-transitions-page" data-role="button" data-transition="none" data-inline="true">Página</a></td>
       </tr>
     </table>
   </div><!-- /content -->
@@ -900,7 +1060,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -926,13 +1086,13 @@ under the License.
         <div class="dragbox" id="item2" >  
           <h2><span class="configure" ><a href="#" >Configure</a></span>Handle 2</h2>  
           <div class="dragbox-content" >  
-            <img src="img/firefox-logo.png"/>
+            <img src="img/Movible3.jpg"/>
           </div>  
         </div>  
         <div class="dragbox" id="item3" >  
           <h2>Handle 3</h2>  
           <div class="dragbox-content" >  
-            <img src="img/logo.png"/>
+            <img src="img/Movible2.jpg"/>
             <p>Pellentesque fermentum, purus sit amet ultrices rutrum, orci lacus fermentum lorem, vitae malesuada mi lectus ut sapien. Etiam ultrices pretium nulla, eleifend dapibus ligula vulputate vel. Maecenas nec commodo enim. Quisque venenatis erat nec nibh porta in tincidunt risus imperdiet. Etiam aliquam porttitor quam quis ullamcorper. In ac gravida justo. Pellentesque quam velit, porta nec dapibus sit amet, suscipit id magna. Aliquam nisi purus, interdum nec cursus eu, vehicula quis nulla. Integer in nulla vel tellus eleifend semper et vitae enim.</p>
           </div>  
         </div>  
@@ -941,7 +1101,7 @@ under the License.
         <div class="dragbox" id="item4" >  
           <h2>Handle 4</h2>  
           <div class="dragbox-content" >  
-            <img src="img/BRL.png"/>
+            <img src="img/Movible1.jpg"/>
           </div>  
         </div>  
         <div class="dragbox" id="item5" >  
@@ -979,7 +1139,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1028,7 +1188,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1065,7 +1225,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1099,7 +1259,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1133,7 +1293,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1181,7 +1341,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1216,7 +1376,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1237,9 +1397,9 @@ under the License.
         </a>
       </div>
       <div class="ui-block-a">
-        <a href="#chart3" data-role="button" data-theme="c">Área
+        <a href="#chart3" data-role="button" data-theme="c">Burbujas
           <div class="chartPic">
-            <img src="img/charts/area.png"/>
+            <img src="img/charts/bubles.png"/>
           </div>
         </a>
       </div>
@@ -1276,7 +1436,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1308,21 +1468,14 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">
-    <div class="ui-grid-a">
-      <div class="ui-block-a">
-        <div id="pieChart1" style="height:300px; width:500px;"></div>
-      </div>
-      <div class="ui-block-b">
-        <a id="refresh" data-role="button">Refrescar</a>
-      </div>
-    </div><!-- /grid-a -->
-    
 
+    <div id="pieChart1" style="height:300px; width:500px;"></div>
+    <a href="" id="refresh" data-role="button">Refrescar</a>
 
     <label for="slider-1">Heavy Industry:</label>
     <input type="range" name="slider-1" id="slider-1" value="18" min="0" max="100" data-mini="true"/>
@@ -1367,12 +1520,12 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
   <div data-role="content">   
-    <div id="areaChart2" style="width:600px;height:260px;"></div>
+    <div id="bublesChart" style="width:460px;height:340px;"></div>
   </div><!-- /content -->
 </div><!-- /page -->
 <div data-role="page" id="chart4">
@@ -1398,7 +1551,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1430,7 +1583,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1464,19 +1617,19 @@ under the License.
           <h3>Por favor rote el iPad de manera horizontal.</h3>
           <img class="popphoto" src="img/ipad.png" alt="Colorful city">
         </div>
-        <div data-role="popup" id="popupBook1" data-overlay-theme="a" data-theme="b" data-tolerance="15,15" class="ui-content">
+        <div data-role="popup" id="popupBook1" data-position-to="window" data-overlay-theme="a" data-theme="b" data-tolerance="15,15" class="ui-content">
           <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
           <iframe src="books/magazine_single/index.html" width="600" height="800" seamless></iframe>
         </div>
-        <div data-role="popup" id="popupBook2" data-overlay-theme="a" data-theme="b" data-tolerance="15,15" class="ui-content">
+        <div data-role="popup" id="popupBook2" data-position-to="window" data-overlay-theme="a" data-theme="b" data-tolerance="15,15" class="ui-content">
           <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
           <iframe src="books/magazine/index.html" width="850" height="650" seamless></iframe>
         </div>
-        <div data-role="popup" id="popupBook3" data-overlay-theme="a" data-theme="b" data-tolerance="15,15" class="ui-content">
+        <div data-role="popup" id="popupBook3" data-position-to="window" data-overlay-theme="a" data-theme="b" data-tolerance="15,15" class="ui-content">
           <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
           <iframe src="books/interactive/index.html" width="850" height="650" seamless></iframe>
         </div>
-        <div data-role="popup" id="popupBook6" data-overlay-theme="a" data-theme="b" data-tolerance="15,15" class="ui-content">
+        <div data-role="popup" id="popupBook6" data-position-to="window" data-overlay-theme="a" data-theme="b" data-tolerance="15,15" class="ui-content">
           <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
           <iframe src="books/bible/index.html" width="850" height="650" seamless></iframe>
         </div>
@@ -1511,7 +1664,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1526,7 +1679,7 @@ under the License.
         <p class="z2">
           Etiam ultrices odio sagittis erat aliquam tempor. Duis blandit aliquam nibh ac rhoncus. Etiam leo orci, sagittis eu luctus ac, malesuada adipiscing turpis. Donec interdum tincidunt tincidunt. In luctus gravida vestibulum. Phasellus a tellus est. Ut congue lobortis porta.
         </p>
-        <img src="img/BRL.png"/>
+        <img class="pils" src="img/Zoom.jpg"/>
       </div>
       <div class="ui-block-a">
         <p class="z3">
@@ -1537,8 +1690,6 @@ under the License.
         <p class="z4">
           Etiam sed erat diam, vitae sodales tellus. Curabitur tempus nibh vitae eros semper lacinia. Curabitur nibh ligula, aliquam vitae ultricies ac, sollicitudin quis lectus. Aenean ut fermentum arcu. Donec vel massa dui, a pulvinar magna. Ut sed leo sit amet nulla rutrum laoreet vel id felis. Aliquam erat volutpat. Suspendisse vitae commodo tellus. Sed ac odio orci, eu tempor sem. Nam convallis laoreet vestibulum. Morbi dignissim, turpis id vehicula gravida, nibh arcu interdum augue, ac varius neque orci eu lectus. Integer consectetur tempus imperdiet.
         </p>
-        <img class="small" src="img/BRL2.png"/>
-        <img class="small" src="img/BRL2.png"/>
         <img class="small" src="img/BRL2.png"/>
         <img class="small" src="img/BRL2.png"/>
         <img class="small" src="img/BRL2.png"/>
@@ -1594,7 +1745,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1634,7 +1785,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1710,7 +1861,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
@@ -1719,9 +1870,10 @@ under the License.
       <img src="http://fc03.deviantart.net/fs47/f/2009/150/7/b/Universe___heic0602a_by_razielfromhell.jpg"/>
     <h2>Video externo</h2>
       <!-- <object width="560" height="315"><param name="movie" value="http://www.youtube.com/v/RQieoqCLWDo?version=3&amp;hl=en_US&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/RQieoqCLWDo?version=3&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object> -->
-      <iframe width="560" height="315" src="http://www.youtube.com/embed/RQieoqCLWDo?rel=0" frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="http://www.youtube.com/embed/xyxvFhg1r0c?rel=0" frameborder="0" allowfullscreen></iframe>
       <!-- <embed src="http://www.youtube.com/v/IJJ8_qNELqw?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed> -->
     <h2>Servicio externo (facebook de Coca Cola)</h2>
+      <img class="fb" src="img/facebook-icon.png">
       <textarea id="facebook">...</textarea>
   </div><!-- /content -->
 </div><!-- /page -->
@@ -1749,7 +1901,7 @@ under the License.
     </div>
     <div data-role="controlgroup" data-type="horizontal" class="mainControl">
       <a href="#home" data-role="button" data-icon="home" data-inline="true">Inicio</a>
-      <a data-rel="back" data-role="button" data-icon="back" data-inline="true">Atras</a>
+      <a data-rel="back" data-role="button" data-icon="back" data-inline="true" class="backMenu">Atras</a>
     </div>
     <h1>BRL Research iPad Demo</h1>
   </div><!-- /header -->
